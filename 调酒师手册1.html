@@ -1,0 +1,3786 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>调酒师手册 · 精选鸡尾酒配方</title>
+    <link rel="stylesheet" href="https://static0.xesimg.com/alading-resources/css/all.min.css" />
+    <link rel="stylesheet" href="https://static0.xesimg.com/alading-resources/css/tailwind.min.css" />
+    <link rel="stylesheet" href="https://static0.xesimg.com/alading-resources/css/css2.css?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" />
+    <script src="https://static0.xesimg.com/alading-resources/js/mermaid.min.js"></script>
+    <style>
+      :root {
+        --gold: #c9a84c;
+        --gold-light: #f0d080;
+        --gold-dark: #8b6914;
+        --amber: #d97706;
+        --bg-dark: #080810;
+        --bg-card: #10101c;
+        --bg-surface: #161624;
+        --bg-elevated: #1e1e30;
+        --text-primary: #f0ece0;
+        --text-secondary: #9a9280;
+        --border: rgba(201, 168, 76, 0.15);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--bg-dark);
+        color: var(--text-primary);
+        font-family: Tahoma, Arial, Roboto, "Droid Sans", "Helvetica Neue", "Noto Sans SC", "Hiragino Sans GB", Simsun, sans-serif;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      ::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--bg-dark);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--gold-dark);
+        border-radius: 3px;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 80% 50% at 15% 0%, rgba(201, 168, 76, 0.07) 0%, transparent 60%),
+          radial-gradient(ellipse 50% 40% at 85% 100%, rgba(217, 119, 6, 0.06) 0%, transparent 55%),
+          url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c9a84c' fill-opacity='0.025'%3E%3Cpath d='M0 0h4v4H0zm76 0h4v4h-4zM0 76h4v4H0zm76 76h4v4h-4z'/%3E%3C/g%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* ── Gold text ── */
+      .gold-text {
+        background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--amber) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* ── NAV ── */
+      .nav-link {
+        font-size: 14px;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color .2s;
+        padding: 4px 0;
+        border-bottom: 2px solid transparent;
+      }
+
+      .nav-link:hover {
+        color: var(--gold-light);
+        border-bottom-color: var(--gold);
+      }
+
+      /* ── HERO ── */
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(135deg, rgba(8, 8, 16, 0.93) 0%, rgba(8, 8, 16, 0.6) 50%, rgba(8, 8, 16, 0.88) 100%),
+          url('https://images.pexels.com/photos/3407777/pexels-photo-3407777.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+      }
+
+      .hero-bg::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 140px;
+        background: linear-gradient(to bottom, transparent, var(--bg-dark));
+      }
+
+      /* ── Buttons ── */
+      .btn-primary {
+        background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--amber));
+        color: #08080f;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+        transition: all .3s;
+        position: relative;
+        overflow: hidden;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(201, 168, 76, 0.38);
+      }
+
+      .btn-ghost {
+        border: 1px solid rgba(201, 168, 76, 0.28);
+        background: rgba(201, 168, 76, 0.05);
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all .25s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn-ghost:hover {
+        border-color: var(--gold);
+        background: rgba(201, 168, 76, 0.1);
+        color: var(--gold-light);
+      }
+
+      .btn-ghost.active {
+        border-color: #4ade80;
+        background: rgba(74, 222, 128, 0.1);
+        color: #86efac;
+      }
+
+      /* ── Spirit cards ── */
+      .spirit-card {
+        background: var(--bg-card);
+        border: 1.5px solid var(--border);
+        border-radius: 14px;
+        cursor: pointer;
+        transition: all .28s cubic-bezier(.4, 0, .2, 1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 8px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .spirit-card:hover {
+        border-color: rgba(201, 168, 76, 0.45);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+      }
+
+      .spirit-card.selected {
+        border-color: var(--gold);
+        background: rgba(201, 168, 76, 0.08);
+      }
+
+      .spirit-card.selected .spirit-check {
+        opacity: 1;
+      }
+
+      .spirit-check {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 18px;
+        height: 18px;
+        background: var(--gold);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 9px;
+        color: #08080f;
+        opacity: 0;
+        transition: opacity .25s;
+      }
+
+      .spirit-icon-wrap {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.04);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all .28s;
+        font-size: 22px;
+      }
+
+      .spirit-card.selected .spirit-icon-wrap {
+        background: rgba(201, 168, 76, 0.12);
+      }
+
+      /* ── Brand/variant panel ── */
+      .brand-panel {
+        background: var(--bg-surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transition: max-height .45s cubic-bezier(.4, 0, .2, 1), opacity .3s;
+      }
+
+      .brand-panel.open {
+        max-height: 600px;
+        opacity: 1;
+      }
+
+      .brand-section {
+        padding: 20px 24px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      }
+
+      .brand-section:last-child {
+        border-bottom: none;
+      }
+
+      .brand-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(201, 168, 76, 0.2);
+        background: rgba(255, 255, 255, 0.03);
+        font-size: 12px;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all .22s;
+        white-space: nowrap;
+      }
+
+      .brand-tag:hover {
+        border-color: rgba(201, 168, 76, 0.5);
+        color: var(--gold-light);
+        background: rgba(201, 168, 76, 0.08);
+      }
+
+      .brand-tag.active {
+        border-color: var(--gold);
+        background: rgba(201, 168, 76, 0.15);
+        color: var(--gold-light);
+        font-weight: 600;
+      }
+
+      .brand-tag.active::before {
+        content: '✓ ';
+      }
+
+      /* ── Recipe cards ── */
+      .recipe-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all .35s cubic-bezier(.4, 0, .2, 1);
+        position: relative;
+      }
+
+      .recipe-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(201, 168, 76, 0.4);
+        box-shadow: 0 22px 50px rgba(0, 0, 0, 0.55);
+      }
+
+      .recipe-card.matched {
+        border-color: rgba(74, 222, 128, 0.35);
+        box-shadow: 0 0 18px rgba(74, 222, 128, 0.08);
+      }
+
+      .recipe-card.dimmed {
+        opacity: .38;
+        filter: grayscale(.6);
+      }
+
+      .card-img {
+        position: relative;
+        height: 195px;
+        overflow: hidden;
+      }
+
+      .card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform .6s;
+      }
+
+      .recipe-card:hover .card-img img {
+        transform: scale(1.08);
+      }
+
+      .card-img-grad {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, transparent 35%, rgba(8, 8, 16, .88) 100%);
+      }
+
+      /* ── Badges ── */
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 3px 10px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 600;
+      }
+
+      .badge-easy {
+        background: rgba(74, 222, 128, .14);
+        color: #86efac;
+        border: 1px solid rgba(74, 222, 128, .3);
+      }
+
+      .badge-medium {
+        background: rgba(251, 191, 36, .14);
+        color: #fde68a;
+        border: 1px solid rgba(251, 191, 36, .3);
+      }
+
+      .badge-hard {
+        background: rgba(239, 68, 68, .14);
+        color: #fca5a5;
+        border: 1px solid rgba(239, 68, 68, .3);
+      }
+
+      .badge-matchable {
+        background: rgba(74, 222, 128, .88);
+        color: #08080f;
+        border: none;
+        font-weight: 700;
+      }
+
+      /* ── Tabs ── */
+      .tab-btn {
+        padding: 9px 18px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all .22s;
+        color: var(--text-secondary);
+        border: 1px solid transparent;
+        background: none;
+        white-space: nowrap;
+      }
+
+      .tab-btn.active {
+        background: rgba(201, 168, 76, .14);
+        border-color: rgba(201, 168, 76, .38);
+        color: var(--gold-light);
+      }
+
+      .tab-btn:hover:not(.active) {
+        color: var(--text-primary);
+        background: rgba(255, 255, 255, .04);
+      }
+
+      /* ── Search ── */
+      .search-wrap {
+        position: relative;
+      }
+
+      .search-wrap i {
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-secondary);
+        pointer-events: none;
+      }
+
+      .search-input {
+        background: rgba(255, 255, 255, .04);
+        border: 1px solid rgba(201, 168, 76, .18);
+        color: var(--text-primary);
+        border-radius: 12px;
+        padding: 12px 20px 12px 46px;
+        width: 100%;
+        font-size: 14px;
+        transition: all .25s;
+        outline: none;
+      }
+
+      .search-input:focus {
+        border-color: rgba(201, 168, 76, .5);
+        background: rgba(255, 255, 255, .06);
+        box-shadow: 0 0 20px rgba(201, 168, 76, .1);
+      }
+
+      .search-input::placeholder {
+        color: rgba(160, 152, 128, .45);
+      }
+
+      /* ── Modal ── */
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, .82);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .3s;
+      }
+
+      .modal-overlay.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .modal-box {
+        background: var(--bg-surface);
+        border: 1px solid rgba(201, 168, 76, .28);
+        border-radius: 22px;
+        max-width: 720px;
+        width: 100%;
+        max-height: 92vh;
+        overflow-y: auto;
+        transform: translateY(28px) scale(.96);
+        transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+      }
+
+      .modal-overlay.open .modal-box {
+        transform: translateY(0) scale(1);
+      }
+
+      /* ── Misc ── */
+      .divider {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        opacity: .28;
+      }
+
+      .step-dot {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+        color: #08080f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .mermaid-wrap {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 24px;
+        overflow-x: auto;
+      }
+
+      .toast {
+        position: fixed;
+        bottom: 28px;
+        left: 50%;
+        transform: translateX(-50%) translateY(14px);
+        background: var(--bg-elevated);
+        border: 1px solid rgba(201, 168, 76, .4);
+        color: var(--gold-light);
+        padding: 11px 24px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 600;
+        z-index: 2000;
+        opacity: 0;
+        transition: all .3s;
+        pointer-events: none;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, .45);
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      .section-label {
+        font-size: 11px;
+        letter-spacing: 4px;
+        color: var(--gold);
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .section-title {
+        font-family: 'Noto Serif SC', serif;
+        font-size: clamp(1.4rem, 3vw, 2rem);
+        font-weight: 700;
+        color: #fff;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fu {
+        animation: fadeUp .5s ease both;
+      }
+
+      .fu2 {
+        animation: fadeUp .5s .1s ease both;
+      }
+
+      .fu3 {
+        animation: fadeUp .5s .18s ease both;
+      }
+
+      @keyframes pulse-glow {
+
+        0%,
+        100% {
+          box-shadow: 0 0 0 0 rgba(201, 168, 76, 0);
+        }
+
+        50% {
+          box-shadow: 0 0 0 6px rgba(201, 168, 76, 0.12);
+        }
+      }
+
+      /* ── Brand panel subtype ── */
+      .brand-group-title {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+        margin-bottom: 10px;
+      }
+
+      .brand-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      /* ── Flavor pills ── */
+      .flavor-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 2px 9px;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: 500;
+        margin: 2px;
+      }
+
+      /* ── Responsive ── */
+      @media(max-width:640px) {
+        .brand-section {
+          padding: 14px 16px;
+        }
+
+        .modal-box {
+          border-radius: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div style="position:relative;z-index:1;">
+
+      <!-- ════════════════════ NAV ════════════════════ -->
+      <nav style="border-bottom:1px solid rgba(201,168,76,0.1);backdrop-filter:blur(20px);background:rgba(8,8,16,0.88);position:sticky;top:0;z-index:500;">
+        <div class="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div style="width:38px;height:38px;background:linear-gradient(135deg,#8b6914,#c9a84c);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="fas fa-cocktail" style="color:#08080f;font-size:18px;"></i>
+            </div>
+            <div>
+              <div class="gold-text" style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;letter-spacing:1px;">调酒师手册</div>
+              <div style="font-size:10px;color:var(--text-secondary);letter-spacing:3px;">BARTENDER'S GUIDE</div>
+            </div>
+          </div>
+          <div class="hidden md:flex items-center gap-6">
+            <a href="#cabinet" class="nav-link">我的酒柜</a>
+            <a href="#recipes" class="nav-link">配方库</a>
+            <a href="#flavor-map" class="nav-link">口味图谱</a>
+          </div>
+          <button onclick="scrollTo('#cabinet')" class="btn-primary px-4 py-2 rounded-lg text-sm hidden md:flex" style="font-size:13px;">
+            <i class="fas fa-glass-whiskey"></i> 我的酒柜
+          </button>
+        </div>
+      </nav>
+
+      <!-- ════════════════════ HERO ════════════════════ -->
+      <section style="position:relative;min-height:480px;display:flex;align-items:center;overflow:hidden;">
+        <div class="hero-bg"></div>
+        <div class="max-w-7xl mx-auto px-6 py-20 relative" style="z-index:2;width:100%;">
+          <div class="max-w-2xl fu">
+            <div class="flex items-center gap-3 mb-5">
+              <div style="width:36px;height:1px;background:var(--gold);"></div>
+              <span class="section-label">精选鸡尾酒配方</span>
+            </div>
+            <h1 style="font-family:'Noto Serif SC',serif;font-size:clamp(2rem,5vw,3.4rem);font-weight:700;line-height:1.25;margin-bottom:18px;">
+              <span class="gold-text">调一杯</span>属于你的<br /><span style="color:#fff;">完美鸡尾酒</span>
+            </h1>
+            <p style="font-size:15px;color:rgba(240,236,224,0.68);line-height:1.85;margin-bottom:28px;">
+              收录 <strong style="color:var(--gold-light);">50+</strong> 款经典与创意配方。选择你手头拥有的基酒与品牌，智能匹配最适合你的调法。
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <button onclick="scrollTo('#cabinet')" class="btn-primary px-6 py-3 rounded-xl" style="font-size:15px;">
+                <i class="fas fa-filter"></i> 按酒柜筛选
+              </button>
+              <button onclick="scrollTo('#recipes')" class="btn-ghost px-6 py-3 rounded-xl" style="font-size:15px;">
+                <i class="fas fa-book-open"></i> 浏览配方库
+              </button>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-8 mt-12 fu3">
+            <div>
+              <div style="font-family:'Noto Serif SC',serif;font-size:2rem;font-weight:700;" class="gold-text">55+</div>
+              <div style="font-size:12px;color:var(--text-secondary);margin-top:2px;">精选配方</div>
+            </div>
+            <div style="width:1px;background:rgba(201,168,76,0.2);"></div>
+            <div>
+              <div style="font-family:'Noto Serif SC',serif;font-size:2rem;font-weight:700;" class="gold-text">8</div>
+              <div style="font-size:12px;color:var(--text-secondary);margin-top:2px;">基酒类型</div>
+            </div>
+            <div style="width:1px;background:rgba(201,168,76,0.2);"></div>
+            <div>
+              <div style="font-family:'Noto Serif SC',serif;font-size:2rem;font-weight:700;" class="gold-text">30+</div>
+              <div style="font-size:12px;color:var(--text-secondary);margin-top:2px;">热门品牌</div>
+            </div>
+            <div style="width:1px;background:rgba(201,168,76,0.2);"></div>
+            <div>
+              <div style="font-family:'Noto Serif SC',serif;font-size:2rem;font-weight:700;" class="gold-text">∞</div>
+              <div style="font-size:12px;color:var(--text-secondary);margin-top:2px;">创意灵感</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════ 我的酒柜 ════════════════════ -->
+      <section id="cabinet" style="padding:60px 0 40px;">
+        <div class="max-w-7xl mx-auto px-5">
+          <div class="text-center mb-10">
+            <div class="flex items-center justify-center gap-3 mb-3">
+              <div style="height:1px;width:36px;background:linear-gradient(to right,transparent,var(--gold));"></div>
+              <i class="fas fa-cabinet-filing" style="color:var(--gold);"></i>
+              <div style="height:1px;width:36px;background:linear-gradient(to left,transparent,var(--gold));"></div>
+            </div>
+            <h2 class="section-title mb-2">选择你的<span class="gold-text">酒柜</span></h2>
+            <p style="color:var(--text-secondary);font-size:14px;">先选基酒类型，再展开选择具体品牌与风格，系统将精准匹配可制作配方</p>
+          </div>
+
+          <!-- 基酒类型网格 -->
+          <div class="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-3 mb-5" id="spiritTypeGrid"></div>
+
+          <!-- 展开品牌面板 -->
+          <div class="brand-panel" id="brandPanel">
+            <div id="brandPanelContent"></div>
+          </div>
+
+          <!-- 已选摘要 -->
+          <div id="selectedSummary" style="margin-top:18px;display:none;">
+            <div style="background:var(--bg-surface);border:1px solid var(--border);border-radius:12px;padding:14px 20px;">
+              <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;font-weight:600;letter-spacing:1px;">已选品牌 / 配料</div>
+              <div id="selectedTags" class="flex flex-wrap gap-2"></div>
+            </div>
+          </div>
+
+          <!-- 操作按钮 -->
+          <div class="flex flex-wrap gap-3 justify-center mt-6">
+            <button onclick="selectAllSpirits()" class="btn-ghost px-5 py-2 rounded-lg text-sm"><i class="fas fa-check-double"></i> 全选基酒</button>
+            <button onclick="clearAll()" class="btn-ghost px-5 py-2 rounded-lg text-sm"><i class="fas fa-undo"></i> 重置</button>
+            <button onclick="filterByOwned()" class="btn-primary px-6 py-2.5 rounded-lg text-sm" style="font-size:13px;font-weight:700;">
+              <i class="fas fa-magic"></i> 匹配可调配方
+            </button>
+            <button onclick="showAll()" class="btn-ghost px-5 py-2 rounded-lg text-sm"><i class="fas fa-th"></i> 显示全部</button>
+          </div>
+
+          <!-- 匹配结果 -->
+          <div id="matchBanner" style="display:none;margin-top:16px;">
+            <div style="background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.28);border-radius:10px;padding:12px 20px;text-align:center;font-size:14px;color:#86efac;">
+              <i class="fas fa-check-circle mr-2"></i><span id="matchText"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider" style="max-width:900px;margin:0 auto;"></div>
+
+      <!-- ════════════════════ 搜索 & 筛选 ════════════════════ -->
+      <section id="recipes" style="padding:40px 0 16px;">
+        <div class="max-w-7xl mx-auto px-5">
+          <div class="flex flex-col md:flex-row gap-3 items-start md:items-center">
+            <div class="search-wrap" style="flex:1;max-width:360px;min-width:200px;">
+              <i class="fas fa-search" style="font-size:14px;"></i>
+              <input type="text" class="search-input" placeholder="搜索配方名、基酒…" id="searchInput" oninput="applyFilters()" />
+            </div>
+            <div class="flex flex-wrap gap-2 items-center" id="flavorTabs">
+              <button class="tab-btn active" data-f="all" onclick="setFlavorTab(this,'all')">全部</button>
+              <button class="tab-btn" data-f="sweet" onclick="setFlavorTab(this,'sweet')">🍬 甜</button>
+              <button class="tab-btn" data-f="sour" onclick="setFlavorTab(this,'sour')">🍋 酸</button>
+              <button class="tab-btn" data-f="bitter" onclick="setFlavorTab(this,'bitter')">🫒 苦</button>
+              <button class="tab-btn" data-f="strong" onclick="setFlavorTab(this,'strong')">🔥 烈</button>
+              <button class="tab-btn" data-f="fresh" onclick="setFlavorTab(this,'fresh')">🌿 清爽</button>
+              <button class="tab-btn" data-f="tropical" onclick="setFlavorTab(this,'tropical')">🌴 热带</button>
+              <button class="tab-btn" data-f="creamy" onclick="setFlavorTab(this,'creamy')">🥛 奶香</button>
+              <button class="tab-btn" data-f="smoky" onclick="setFlavorTab(this,'smoky')">💨 烟熏</button>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;white-space:nowrap;">
+              <span style="font-size:12px;color:var(--text-secondary);" id="resultCount">共 55 款</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════ 配方网格 ════════════════════ -->
+      <section style="padding:8px 0 60px;">
+        <div class="max-w-7xl mx-auto px-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5" id="recipeGrid"></div>
+        </div>
+      </section>
+
+      <!-- ════════════════════ 口味图谱 ════════════════════ -->
+      <section id="flavor-map" style="padding:60px 0;background:rgba(255,255,255,.012);">
+        <div class="max-w-7xl mx-auto px-5">
+          <div class="text-center mb-10">
+            <div class="flex items-center justify-center gap-3 mb-3">
+              <div style="height:1px;width:36px;background:linear-gradient(to right,transparent,var(--gold));"></div>
+              <i class="fas fa-project-diagram" style="color:var(--gold);"></i>
+              <div style="height:1px;width:36px;background:linear-gradient(to left,transparent,var(--gold));"></div>
+            </div>
+            <h2 class="section-title mb-2">基酒 <span class="gold-text">风味图谱</span></h2>
+            <p style="color:var(--text-secondary);font-size:14px;">各类基酒的风味特征与代表鸡尾酒关系一览</p>
+          </div>
+          <div class="mermaid-wrap">
+            <div class="mermaid">
+              mindmap
+              root((🍹 鸡尾酒))
+              伏特加
+              清冽无味
+              莫斯科骡子
+              螺丝刀
+              伏特加柯林斯
+              奶油系
+              白俄罗斯
+              奶油伏特加
+              果味系
+              宇宙马丁尼
+              蓝色珊瑚礁
+              金酒
+              草本花香植物学家
+              内格罗尼
+              马天尼
+              柑橘清新添加利10号
+              金汤力
+              新加坡司令
+              复杂草药亨利爵士
+              三叶草俱乐部
+              航空
+              朗姆酒
+              白朗姆清爽
+              莫吉托
+              代基里
+              深色浓郁
+              黑暗风暴
+              迈泰
+              椰香热带
+              凤梨可乐达
+              椰林飘香
+              龙舌兰
+              烟熏梅斯卡尔
+              烟雾玛格丽特
+              纸飞机
+              清爽银色
+              玛格丽特
+              帕洛玛
+              陈年复杂
+              龙舌兰日出
+              帕洛马冰茶
+              威士忌
+              波本甜蜜
+              古典鸡尾酒
+              薄荷朱利普
+              黑麦辛辣
+              曼哈顿
+              撒泽拉克
+              苏格兰烟熏
+              锈钉
+              罗布罗伊
+              白兰地
+              干邑典雅
+              边车
+              亚历山大
+              B&B
+              苹果白兰地
+              苹果马车
+              利口酒
+              咖啡力娇
+              浓咖啡马天尼
+              B52
+              白俄罗斯
+              橙皮系
+              玛格丽特
+              科斯莫
+              奶油系
+              百利甜马天尼
+              泥石流
+              蓝橙/薄荷
+              蓝色珊瑚礁
+              翡翠之吻
+              葡萄酒
+              起泡酒香槟
+              含羞草
+              贝里尼
+              红葡萄酒
+              桑格利亚
+              纽约酸
+              白葡萄酒
+              白桑格利亚
+              味美思
+              内格罗尼
+              曼哈顿
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════ FOOTER ════════════════════ -->
+      <footer style="border-top:1px solid rgba(201,168,76,0.1);padding:36px 0;background:rgba(0,0,0,0.25);">
+        <div class="max-w-7xl mx-auto px-5 text-center">
+          <div class="flex items-center justify-center gap-3 mb-3">
+            <div style="width:30px;height:30px;background:linear-gradient(135deg,#8b6914,#c9a84c);border-radius:8px;display:flex;align-items:center;justify-content:center;">
+              <i class="fas fa-cocktail" style="color:#08080f;font-size:13px;"></i>
+            </div>
+            <span class="gold-text" style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;">调酒师手册</span>
+          </div>
+          <p style="color:var(--text-secondary);font-size:12px;">请适量饮酒，未成年人禁止饮酒。内容仅供参考。</p>
+          <p style="color:rgba(160,152,128,0.35);font-size:11px;margin-top:6px;">© 2026 调酒师手册 · 55+ 精选鸡尾酒配方</p>
+        </div>
+      </footer>
+
+    </div><!-- /z-1 -->
+
+    <!-- ════════════════════ 模态框 ════════════════════ -->
+    <div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
+      <div class="modal-box" id="modalBox"></div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- ════════════════════ SCRIPT ════════════════════ -->
+    <script>
+      // ─────────────────────────────────────────────────────
+      // 数据：基酒类型
+      // ─────────────────────────────────────────────────────
+      const SPIRIT_TYPES = [{
+          id: 'vodka',
+          name: '伏特加',
+          icon: 'fa-snowflake',
+          color: '#a5b4fc'
+        },
+        {
+          id: 'gin',
+          name: '金酒',
+          icon: 'fa-seedling',
+          color: '#86efac'
+        },
+        {
+          id: 'rum',
+          name: '朗姆酒',
+          icon: 'fa-sun',
+          color: '#fde68a'
+        },
+        {
+          id: 'tequila',
+          name: '龙舌兰',
+          icon: 'fa-fire',
+          color: '#fb923c'
+        },
+        {
+          id: 'whiskey',
+          name: '威士忌',
+          icon: 'fa-fire-flame-curved',
+          color: '#fca5a5'
+        },
+        {
+          id: 'brandy',
+          name: '白兰地',
+          icon: 'fa-wine-glass',
+          color: '#e879f9'
+        },
+        {
+          id: 'liqueur',
+          name: '利口酒',
+          icon: 'fa-star',
+          color: '#67e8f9'
+        },
+        {
+          id: 'wine',
+          name: '葡萄酒',
+          icon: 'fa-wine-bottle',
+          color: '#f9a8d4'
+        },
+      ];
+      // ─────────────────────────────────────────────────────
+      // 数据：品牌 / 细分选项（每个基酒类型下的具体品牌或风格）
+      // ─────────────────────────────────────────────────────
+      const BRAND_OPTIONS = {
+        vodka: {
+          label: '伏特加品牌',
+          groups: [{
+              title: '俄罗斯 / 经典',
+              color: '#a5b4fc',
+              items: [{
+                  id: 'smirnoff',
+                  name: 'Smirnoff 斯米诺夫',
+                  note: '中性清爽，万能基酒'
+                },
+                {
+                  id: 'absolut',
+                  name: 'Absolut 绝对伏特加',
+                  note: '瑞典，纯净谷物香'
+                },
+                {
+                  id: 'stolichnaya',
+                  name: 'Stolichnaya 苏联红',
+                  note: '俄罗斯经典，矿物感'
+                },
+              ]
+            },
+            {
+              title: '高端精品',
+              color: '#818cf8',
+              items: [{
+                  id: 'grey_goose',
+                  name: 'Grey Goose 灰雁',
+                  note: '法国，绵柔奢华'
+                },
+                {
+                  id: 'belvedere',
+                  name: 'Belvedere 贝尔维迪',
+                  note: '波兰黑麦，丝滑'
+                },
+                {
+                  id: 'ketel_one',
+                  name: 'Ketel One 坎特一号',
+                  note: '荷兰，植物冷蒸馏'
+                },
+              ]
+            },
+            {
+              title: '特色风味',
+              color: '#6366f1',
+              items: [{
+                  id: 'titos',
+                  name: "Tito's 蒂托斯",
+                  note: '美国玉米，微甜'
+                },
+                {
+                  id: 'ciroc',
+                  name: 'Cîroc 西乐克',
+                  note: '法国葡萄，果香'
+                },
+              ]
+            },
+          ]
+        },
+        gin: {
+          label: '金酒品牌',
+          groups: [{
+              title: '经典伦敦干金酒',
+              color: '#86efac',
+              items: [{
+                  id: 'tanqueray',
+                  name: 'Tanqueray 添加利',
+                  note: '经典4种植物，干净'
+                },
+                {
+                  id: 'tanqueray10',
+                  name: 'Tanqueray No.10',
+                  note: '新鲜柑橘，花香优雅'
+                },
+                {
+                  id: 'beefeater',
+                  name: 'Beefeater',
+                  note: '杜松子突出，经典伦敦'
+                },
+                {
+                  id: 'gordons',
+                  name: "Gordon's",
+                  note: '平价经典，刺柏主导'
+                },
+              ]
+            },
+            {
+              title: '新派植物金酒',
+              color: '#4ade80',
+              items: [{
+                  id: 'botanist',
+                  name: 'The Botanist 植物学家',
+                  note: '22种赫布里底植物'
+                },
+                {
+                  id: 'hendricks',
+                  name: "Hendrick's 亨利爵士",
+                  note: '玫瑰+黄瓜，花香独特'
+                },
+                {
+                  id: 'monkey47',
+                  name: 'Monkey 47',
+                  note: '47种植物，黑森林'
+                },
+                {
+                  id: 'fever_tree',
+                  name: 'Gin Mare',
+                  note: '地中海风，橄榄+百里香'
+                },
+              ]
+            },
+            {
+              title: '日式 / 亚洲',
+              color: '#bbf7d0',
+              items: [{
+                  id: 'roku',
+                  name: 'Roku 六',
+                  note: '6种日本植物，茶香'
+                },
+                {
+                  id: 'ji',
+                  name: 'Ji 季',
+                  note: '中国传统草药植物'
+                },
+              ]
+            },
+          ]
+        },
+        rum: {
+          label: '朗姆酒品牌',
+          groups: [{
+              title: '白朗姆 / 清爽',
+              color: '#fde68a',
+              items: [{
+                  id: 'bacardi_white',
+                  name: 'Bacardi Carta Blanca 百加得白',
+                  note: '清爽中性，经典基酒'
+                },
+                {
+                  id: 'havana3',
+                  name: 'Havana Club 3年',
+                  note: '古巴风味，甘蔗清香'
+                },
+                {
+                  id: 'plantation3',
+                  name: 'Plantation 3 Stars',
+                  note: '三岛混调，柔和平衡'
+                },
+              ]
+            },
+            {
+              title: '深色 / 陈年',
+              color: '#f59e0b',
+              items: [{
+                  id: 'goslings',
+                  name: "Gosling's Black Seal 高斯林",
+                  note: '百慕大深色，焦糖香'
+                },
+                {
+                  id: 'mount_gay',
+                  name: 'Mount Gay 芒特盖尔',
+                  note: '巴巴多斯，橡木辛香'
+                },
+                {
+                  id: 'appleton',
+                  name: 'Appleton Estate 阿普顿',
+                  note: '牙买加，果香丰富'
+                },
+                {
+                  id: 'zacapa',
+                  name: 'Ron Zacapa 萨卡帕23',
+                  note: '危地马拉，蜂蜜太妃'
+                },
+              ]
+            },
+            {
+              title: '特色风味',
+              color: '#fcd34d',
+              items: [{
+                  id: 'malibu',
+                  name: 'Malibu 马利宝椰子朗姆',
+                  note: '椰子利口，20%ABV'
+                },
+                {
+                  id: 'diplomatico',
+                  name: 'Diplomático Reserva',
+                  note: '委内瑞拉，甘甜果仁'
+                },
+              ]
+            },
+          ]
+        },
+        tequila: {
+          label: '龙舌兰品牌',
+          groups: [{
+              title: '银色 Blanco',
+              color: '#fb923c',
+              items: [{
+                  id: 'espolon',
+                  name: 'Espolòn Blanco',
+                  note: '清爽草本，性价比高'
+                },
+                {
+                  id: 'patron_s',
+                  name: 'Patrón Silver',
+                  note: '清脆柑橘，精品入门'
+                },
+                {
+                  id: 'clase_az',
+                  name: 'Clase Azul Plata',
+                  note: '奢华纯净，植物味足'
+                },
+              ]
+            },
+            {
+              title: 'Reposado 陈年',
+              color: '#f97316',
+              items: [{
+                  id: 'patron_r',
+                  name: 'Patrón Reposado',
+                  note: '2个月橡木，轻木桶'
+                },
+                {
+                  id: 'don_julio',
+                  name: 'Don Julio Reposado',
+                  note: '墨西哥经典，甜香'
+                },
+              ]
+            },
+            {
+              title: '烟熏 Mezcal',
+              color: '#ea580c',
+              items: [{
+                  id: 'del_maguey',
+                  name: 'Del Maguey Vida',
+                  note: 'Oaxacan烟熏，泥土感'
+                },
+                {
+                  id: 'montelobos',
+                  name: 'Montelobos',
+                  note: '草本植物，轻烟熏'
+                },
+              ]
+            },
+          ]
+        },
+        whiskey: {
+          label: '威士忌品牌',
+          groups: [{
+              title: '波本 Bourbon (美国)',
+              color: '#fca5a5',
+              items: [{
+                  id: 'makers',
+                  name: "Maker's Mark 美格",
+                  note: '小麦配方，甜软入口'
+                },
+                {
+                  id: 'woodford',
+                  name: 'Woodford Reserve',
+                  note: '三桶工艺，丰富复杂'
+                },
+                {
+                  id: 'buffalo',
+                  name: 'Buffalo Trace',
+                  note: '香草焦糖，经典波本'
+                },
+                {
+                  id: 'wild_turkey',
+                  name: 'Wild Turkey 101',
+                  note: '高黑麦，辛辣劲道'
+                },
+              ]
+            },
+            {
+              title: '黑麦 Rye (美国/加拿大)',
+              color: '#f87171',
+              items: [{
+                  id: 'rittenhouse',
+                  name: 'Rittenhouse Rye',
+                  note: '100%黑麦，辛辣浓郁'
+                },
+                {
+                  id: 'whistlepig',
+                  name: 'WhistlePig 10年',
+                  note: 'Vermont陈年，层次丰富'
+                },
+              ]
+            },
+            {
+              title: '苏格兰 Scotch',
+              color: '#fda4af',
+              items: [{
+                  id: 'glenfiddich',
+                  name: 'Glenfiddich 格兰菲迪',
+                  note: '梨香蜂蜜，单一麦芽入门'
+                },
+                {
+                  id: 'macallan',
+                  name: 'Macallan 麦卡伦',
+                  note: '雪莉桶，果干巧克力'
+                },
+                {
+                  id: 'laphroaig',
+                  name: 'Laphroaig 拉弗格',
+                  note: '重泥炭，碘味烟熏海盐'
+                },
+                {
+                  id: 'johnnie_bk',
+                  name: 'Johnnie Walker Black',
+                  note: '调和12年，均衡果香'
+                },
+              ]
+            },
+            {
+              title: '爱尔兰 Irish',
+              color: '#fb7185',
+              items: [{
+                  id: 'jameson',
+                  name: 'Jameson 尊美醇',
+                  note: '三次蒸馏，顺滑甘甜'
+                },
+                {
+                  id: 'bushmills',
+                  name: 'Bushmills',
+                  note: '轻盈蜂蜜，平易近人'
+                },
+              ]
+            },
+            {
+              title: '日本 Japanese',
+              color: '#f43f5e',
+              items: [{
+                  id: 'suntory_toki',
+                  name: 'Suntory Toki 東',
+                  note: '花香柚子，清雅日式'
+                },
+                {
+                  id: 'nikka_from',
+                  name: 'Nikka From The Barrel',
+                  note: '浓郁均衡，极高性价比'
+                },
+              ]
+            },
+          ]
+        },
+        brandy: {
+          label: '白兰地品牌',
+          groups: [{
+              title: '干邑 Cognac',
+              color: '#e879f9',
+              items: [{
+                  id: 'hennessy',
+                  name: 'Hennessy VSOP 轩尼诗',
+                  note: '果香太妃，最广认知'
+                },
+                {
+                  id: 'remy',
+                  name: 'Rémy Martin VSOP',
+                  note: '葡萄香甜，入门推荐'
+                },
+                {
+                  id: 'martell',
+                  name: 'Martell Cordon Bleu',
+                  note: '坚果花香，复杂层次'
+                },
+              ]
+            },
+            {
+              title: '苹果白兰地 Calvados',
+              color: '#d946ef',
+              items: [{
+                  id: 'laird',
+                  name: "Laird's Applejack",
+                  note: '美国苹果白兰地'
+                },
+                {
+                  id: 'boulard',
+                  name: 'Boulard Calvados',
+                  note: '诺曼底苹果，清脆'
+                },
+              ]
+            },
+          ]
+        },
+        liqueur: {
+          label: '利口酒 / 力娇酒 / 糖浆',
+          groups: [{
+              title: '☕ 咖啡系',
+              color: '#b45309',
+              items: [{
+                  id: 'kahlua',
+                  name: 'Kahlúa 卡鲁哇',
+                  note: '墨西哥咖啡，甜醇'
+                },
+                {
+                  id: 'tia_maria',
+                  name: 'Tia Maria',
+                  note: '牙买加咖啡，偏干'
+                },
+                {
+                  id: 'mr_black',
+                  name: 'Mr. Black',
+                  note: '澳洲冷萃咖啡，现代'
+                },
+              ]
+            },
+            {
+              title: '🍊 橙皮 / 柑橘系',
+              color: '#f97316',
+              items: [{
+                  id: 'cointreau',
+                  name: 'Cointreau 君度',
+                  note: '法国，干橙皮，标准'
+                },
+                {
+                  id: 'triple_sec',
+                  name: 'Triple Sec 橙皮酒',
+                  note: '通用橙皮，平价'
+                },
+                {
+                  id: 'blue_curacao',
+                  name: 'Blue Curaçao 蓝橙力娇',
+                  note: '蓝色着色，甜橙香'
+                },
+                {
+                  id: 'grand_marnier',
+                  name: 'Grand Marnier 大马尼埃',
+                  note: '干邑+橙皮，奢华'
+                },
+                {
+                  id: 'aperol',
+                  name: 'Aperol',
+                  note: '意大利，橙苦草本'
+                },
+                {
+                  id: 'campari',
+                  name: 'Campari 金巴利',
+                  note: '苦橙草本，内格罗尼灵魂'
+                },
+              ]
+            },
+            {
+              title: '🍒 浆果 / 樱桃系',
+              color: '#e11d48',
+              items: [{
+                  id: 'maraschino',
+                  name: 'Maraschino 马拉斯奇诺',
+                  note: '酸樱桃，航空必备'
+                },
+                {
+                  id: 'chambord',
+                  name: 'Chambord 黑覆盆子',
+                  note: '法国，黑莓香甜'
+                },
+                {
+                  id: 'creme_cassis',
+                  name: 'Crème de Cassis 黑醋栗',
+                  note: '基尔配方核心'
+                },
+              ]
+            },
+            {
+              title: '🌿 草本 / 薄荷系',
+              color: '#4ade80',
+              items: [{
+                  id: 'creme_menthe',
+                  name: 'Crème de Menthe 薄荷力娇',
+                  note: '清凉薄荷，绿色/白色'
+                },
+                {
+                  id: 'chartreuse',
+                  name: 'Chartreuse 沙特勒兹',
+                  note: '130种草本，修道院秘方'
+                },
+                {
+                  id: 'benedictine',
+                  name: 'Bénédictine',
+                  note: '27种草本，蜂蜜辛香'
+                },
+              ]
+            },
+            {
+              title: '💜 花香 / 蓝紫系',
+              color: '#a78bfa',
+              items: [{
+                  id: 'creme_violette',
+                  name: 'Crème de Violette 紫罗兰',
+                  note: '花香独特，航空经典'
+                },
+                {
+                  id: 'st_germain',
+                  name: "St‑Germain 圣日耳曼接骨木",
+                  note: '接骨木花，夏日必备'
+                },
+              ]
+            },
+            {
+              title: '🥛 奶油 / 可可系',
+              color: '#f5d0a9',
+              items: [{
+                  id: 'baileys',
+                  name: 'Baileys 百利甜',
+                  note: '爱尔兰奶油威士忌'
+                },
+                {
+                  id: 'kahlua_cream',
+                  name: 'Amaretto 杏仁力娇',
+                  note: '意大利杏仁，坚果甜'
+                },
+                {
+                  id: 'creme_cacao',
+                  name: 'Crème de Cacao 可可力娇',
+                  note: '巧克力香，深色/白色'
+                },
+                {
+                  id: 'frangelico',
+                  name: 'Frangelico 榛子力娇',
+                  note: '意大利榛子，温润'
+                },
+              ]
+            },
+            {
+              title: '🌺 热带 / 果味系',
+              color: '#fb923c',
+              items: [{
+                  id: 'midori',
+                  name: 'Midori 蜜多丽哈密瓜',
+                  note: '日本，翠绿哈密瓜'
+                },
+                {
+                  id: 'malibu_liq',
+                  name: 'Malibu 马利宝椰子',
+                  note: '椰子甜香，热带'
+                },
+                {
+                  id: 'passoa',
+                  name: 'Passoã 百香果',
+                  note: '法国，热带百香果'
+                },
+                {
+                  id: 'licor43',
+                  name: 'Licor 43 西班牙香草',
+                  note: '43种成分，香草焦糖'
+                },
+              ]
+            },
+            {
+              title: '🔩 特殊 / 苦精',
+              color: '#94a3b8',
+              items: [{
+                  id: 'angostura',
+                  name: 'Angostura Bitters 安格斯图拉苦精',
+                  note: '龙胆草，调酒必备'
+                },
+                {
+                  id: 'peychauds',
+                  name: "Peychaud's Bitters",
+                  note: '撒泽拉克必备，茴香'
+                },
+                {
+                  id: 'absinthe',
+                  name: 'Absinthe 苦艾酒',
+                  note: '茴香草本，极高酒精'
+                },
+                {
+                  id: 'amaretto',
+                  name: 'Disaronno Amaretto',
+                  note: '杏仁甜香，Sour基础'
+                },
+              ]
+            },
+          ]
+        },
+        wine: {
+          label: '葡萄酒 / 加强酒',
+          groups: [{
+              title: '起泡酒',
+              color: '#fde68a',
+              items: [{
+                  id: 'champagne',
+                  name: '香槟 Champagne',
+                  note: '法国起泡，含羞草首选'
+                },
+                {
+                  id: 'prosecco',
+                  name: 'Prosecco 普罗赛克',
+                  note: '意大利，甜脆起泡'
+                },
+                {
+                  id: 'cava',
+                  name: 'Cava',
+                  note: '西班牙起泡，平价'
+                },
+              ]
+            },
+            {
+              title: '红 / 白葡萄酒',
+              color: '#f9a8d4',
+              items: [{
+                  id: 'red_wine',
+                  name: '红葡萄酒（干型）',
+                  note: '桑格利亚/纽约酸'
+                },
+                {
+                  id: 'white_wine',
+                  name: '白葡萄酒（干型）',
+                  note: '白桑格利亚'
+                },
+              ]
+            },
+            {
+              title: '加强酒 / 味美思',
+              color: '#e879f9',
+              items: [{
+                  id: 'dry_vermouth',
+                  name: '干味美思 Dry Vermouth',
+                  note: '马天尼核心'
+                },
+                {
+                  id: 'sweet_vermouth',
+                  name: '甜味美思 Sweet Vermouth',
+                  note: '曼哈顿/内格罗尼'
+                },
+                {
+                  id: 'port',
+                  name: '波特酒 Port',
+                  note: '葡萄牙加强，甜'
+                },
+                {
+                  id: 'sherry',
+                  name: '雪莉酒 Sherry',
+                  note: '西班牙加强，坚果'
+                },
+                {
+                  id: 'lillet',
+                  name: 'Lillet Blanc',
+                  note: '法国苦味酒，维斯帕'
+                },
+              ]
+            },
+          ]
+        }
+      };
+      // ─────────────────────────────────────────────────────
+      // 数据：55 款鸡尾酒配方
+      // ─────────────────────────────────────────────────────
+      const RECIPES = [
+        // ── VODKA ──────────────────────────────────
+        {
+          id: 1,
+          name: '莫斯科骡子',
+          enName: 'Moscow Mule',
+          spirits: ['vodka'],
+          brands: ['smirnoff', 'absolut', 'grey_goose', 'titos'],
+          flavor: ['fresh', 'sweet'],
+          difficulty: 'easy',
+          color: '#818cf8',
+          abv: '~10%',
+          taste: '清爽·辛辣·微甜',
+          img: 'https://images.pexels.com/photos/5947045/pexels-photo-5947045.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '铜杯+姜汁啤酒，派对首选，清爽利落。',
+          brandNote: '灰雁带来顺滑版本；Tito\'s玉米微甜恰到好处。',
+          ingredients: [{
+            n: '伏特加',
+            a: '45ml'
+          }, {
+            n: '姜汁啤酒',
+            a: '120ml'
+          }, {
+            n: '青柠汁',
+            a: '15ml'
+          }, {
+            n: '青柠片',
+            a: '装饰'
+          }],
+          steps: ['铜杯中加满冰块', '倒入伏特加和青柠汁', '轻倒姜汁啤酒，搅拌', '青柠片装饰'],
+          tip: '铜杯保冷效果极佳，是体验完整的关键道具。'
+        },
+        {
+          id: 2,
+          name: '血腥玛丽',
+          enName: 'Bloody Mary',
+          spirits: ['vodka'],
+          brands: ['absolut', 'smirnoff', 'ketel_one'],
+          flavor: ['bitter', 'sour'],
+          difficulty: 'medium',
+          color: '#ef4444',
+          abv: '~12%',
+          taste: '咸鲜·辛辣·酸爽',
+          img: 'https://images.pexels.com/photos/5947044/pexels-photo-5947044.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '番茄汁打底，辛辣开胃，周末早午餐必点。',
+          brandNote: 'Ketel One植物系列更显蔬菜鲜感。',
+          ingredients: [{
+            n: '伏特加',
+            a: '45ml'
+          }, {
+            n: '番茄汁',
+            a: '90ml'
+          }, {
+            n: '柠檬汁',
+            a: '15ml'
+          }, {
+            n: '伍斯特酱',
+            a: '几滴'
+          }, {
+            n: '辣椒酱',
+            a: '适量'
+          }, {
+            n: '芹菜盐',
+            a: '少许'
+          }],
+          steps: ['高杯加冰', '依次加入所有液体', '从底部轻轻翻搅', '芹菜盐黑胡椒调味', '芹菜茎装饰'],
+          tip: '新鲜番茄汁令口感更鲜美。辣度可随意调整。'
+        },
+        {
+          id: 3,
+          name: '宇宙马丁尼',
+          enName: 'Cosmopolitan',
+          spirits: ['vodka'],
+          brands: ['absolut', 'grey_goose', 'ciroc', 'cointreau'],
+          flavor: ['sour', 'sweet'],
+          difficulty: 'medium',
+          color: '#f43f5e',
+          abv: '~20%',
+          taste: '酸甜·果香·优雅',
+          img: 'https://images.pexels.com/photos/5947017/pexels-photo-5947017.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '《欲望都市》指定款，粉红色调迷人。',
+          brandNote: 'Cîroc葡萄酒基使果香更突出；Cointreau作橙皮酒最经典。',
+          ingredients: [{
+            n: '伏特加',
+            a: '40ml'
+          }, {
+            n: '君度橙皮酒',
+            a: '15ml'
+          }, {
+            n: '蔓越莓汁',
+            a: '30ml'
+          }, {
+            n: '青柠汁',
+            a: '15ml'
+          }],
+          steps: ['摇壶加冰', '依次倒入所有材料', '用力摇匀15秒', '过滤倒入冰镇V形杯', '橙皮卷装饰'],
+          tip: '蔓越莓汁用量决定颜色深浅，可按喜好调整。'
+        },
+        {
+          id: 4,
+          name: '伏特加柯林斯',
+          enName: 'Vodka Collins',
+          spirits: ['vodka'],
+          brands: ['smirnoff', 'absolut', 'titos'],
+          flavor: ['sour', 'sweet', 'fresh'],
+          difficulty: 'easy',
+          color: '#6366f1',
+          abv: '~10%',
+          taste: '酸甜·清爽·轻盈',
+          img: 'https://images.pexels.com/photos/5947048/pexels-photo-5947048.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '柠檬苏打，清爽适合任何场合。',
+          brandNote: '使用中性伏特加让柠檬风味充分表达。',
+          ingredients: [{
+            n: '伏特加',
+            a: '45ml'
+          }, {
+            n: '柠檬汁',
+            a: '30ml'
+          }, {
+            n: '糖浆',
+            a: '20ml'
+          }, {
+            n: '苏打水',
+            a: '适量'
+          }],
+          steps: ['摇壶加冰，加入伏特加+柠檬汁+糖浆', '摇匀后倒入加冰高杯', '补满苏打水', '柠檬片樱桃装饰'],
+          tip: '柯林斯家族通用公式，可替换任意基酒。'
+        },
+        {
+          id: 5,
+          name: '蓝色珊瑚礁',
+          enName: 'Blue Lagoon',
+          spirits: ['vodka', 'liqueur'],
+          brands: ['absolut', 'smirnoff', 'blue_curacao'],
+          flavor: ['sweet', 'tropical', 'sour'],
+          difficulty: 'easy',
+          color: '#3b82f6',
+          abv: '~12%',
+          taste: '甜橙·清新·海洋',
+          img: 'https://images.pexels.com/photos/5947043/pexels-photo-5947043.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '湛蓝海洋感，视觉冲击力十足。',
+          brandNote: 'Blue Curaçao是颜色核心，不可缺少。',
+          ingredients: [{
+            n: '伏特加',
+            a: '30ml'
+          }, {
+            n: '蓝橙力娇酒',
+            a: '30ml'
+          }, {
+            n: '柠檬汁',
+            a: '15ml'
+          }, {
+            n: '苏打水',
+            a: '适量'
+          }],
+          steps: ['高杯加冰', '倒入伏特加+蓝橙+柠檬汁', '补满苏打水', '轻搅，樱桃柠檬装饰'],
+          tip: '蓝橙力娇酒用量可多一点，颜色更鲜艳。'
+        },
+        {
+          id: 6,
+          name: '螺丝刀',
+          enName: 'Screwdriver',
+          spirits: ['vodka'],
+          brands: ['smirnoff', 'absolut', 'titos', 'grey_goose'],
+          flavor: ['sweet', 'fresh'],
+          difficulty: 'easy',
+          color: '#f59e0b',
+          abv: '~10%',
+          taste: '清甜·果香·简单',
+          img: 'https://images.pexels.com/photos/5947018/pexels-photo-5947018.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '最简单的经典之一，橙汁让伏特加平易近人。',
+          brandNote: '任何品牌伏特加均可，新鲜现榨橙汁是关键。',
+          ingredients: [{
+            n: '伏特加',
+            a: '50ml'
+          }, {
+            n: '鲜榨橙汁',
+            a: '150ml'
+          }],
+          steps: ['高杯中加冰', '倒入伏特加', '倒入橙汁，轻搅', '橙片装饰'],
+          tip: '新鲜现榨橙汁与罐装的差距是天壤之别。'
+        },
+        {
+          id: 7,
+          name: '白俄罗斯',
+          enName: 'White Russian',
+          spirits: ['vodka', 'liqueur'],
+          brands: ['absolut', 'smirnoff', 'kahlua', 'baileys'],
+          flavor: ['sweet', 'creamy'],
+          difficulty: 'easy',
+          color: '#d4a574',
+          abv: '~20%',
+          taste: '咖啡·奶油·甜蜜',
+          img: 'https://images.pexels.com/photos/5947031/pexels-photo-5947031.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '《大勒博斯基》明星饮品，浓郁咖啡奶油。',
+          brandNote: 'Kahlúa是灵魂；Baileys代替奶油更柔滑。',
+          ingredients: [{
+            n: '伏特加',
+            a: '50ml'
+          }, {
+            n: '卡鲁哇咖啡利口',
+            a: '25ml'
+          }, {
+            n: '淡奶油',
+            a: '25ml（漂浮）'
+          }],
+          steps: ['老式杯加冰', '倒入伏特加和卡鲁哇', '用吧匙背将奶油缓缓浮在顶部'],
+          tip: '奶油漂浮版本更有层次感，喝之前可以先观赏再搅拌。'
+        },
+        {
+          id: 8,
+          name: '浓缩咖啡马天尼',
+          enName: 'Espresso Martini',
+          spirits: ['vodka', 'liqueur'],
+          brands: ['grey_goose', 'belvedere', 'kahlua', 'mr_black', 'tia_maria'],
+          flavor: ['bitter', 'sweet', 'strong'],
+          difficulty: 'medium',
+          color: '#1c1917',
+          abv: '~22%',
+          taste: '咖啡·甜苦·丝滑',
+          img: 'https://images.pexels.com/photos/5947030/pexels-photo-5947030.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '80年代伦敦经典，餐后咖啡与鸡尾酒的完美结合。',
+          brandNote: 'Mr. Black现代冷萃咖啡力娇风味更强烈；Kahlúa更甜。',
+          ingredients: [{
+            n: '伏特加',
+            a: '40ml'
+          }, {
+            n: '咖啡利口酒',
+            a: '30ml'
+          }, {
+            n: '现做浓缩咖啡',
+            a: '1份（25ml）'
+          }, {
+            n: '糖浆',
+            a: '5ml'
+          }],
+          steps: ['浓缩咖啡略冷却', '摇壶加冰，加入所有材料', '大力摇匀20秒（产生泡沫）', '双重过滤倒入马天尼杯', '三颗咖啡豆装饰'],
+          tip: '大力摇制是产生那层漂亮细腻泡沫的关键。'
+        },
+        // ── GIN ────────────────────────────────────
+        {
+          id: 9,
+          name: '金汤力',
+          enName: 'Gin & Tonic',
+          spirits: ['gin'],
+          brands: ['tanqueray', 'gordons', 'hendricks', 'botanist', 'roku'],
+          flavor: ['bitter', 'fresh'],
+          difficulty: 'easy',
+          color: '#4ade80',
+          abv: '~9%',
+          taste: '苦味·清爽·草本',
+          img: 'https://images.pexels.com/photos/5947019/pexels-photo-5947019.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '最经典的金酒饮法，百变配搭永恒经典。',
+          brandNote: '亨利爵士搭配黄瓜片；植物学家搭接骨木花；Roku搭柚子皮。',
+          ingredients: [{
+            n: '金酒',
+            a: '50ml'
+          }, {
+            n: '汤力水',
+            a: '150ml'
+          }, {
+            n: '青柠角',
+            a: '1块'
+          }, {
+            n: '冰块',
+            a: '大量'
+          }],
+          steps: ['大冰块放入球形杯', '倒入金酒', '沿杯壁缓缓倒入冰镇汤力水', '挤入青柠汁，放入杯中装饰'],
+          tip: '不同品牌金酒搭配不同装饰：Hendrick\'s+黄瓜；Tanqueray+青柠；Botanist+接骨木花。'
+        },
+        {
+          id: 10,
+          name: '马天尼',
+          enName: 'Dry Martini',
+          spirits: ['gin', 'wine'],
+          brands: ['tanqueray10', 'hendricks', 'monkey47', 'dry_vermouth', 'lillet'],
+          flavor: ['bitter', 'strong'],
+          difficulty: 'hard',
+          color: '#a3e635',
+          abv: '~28%',
+          taste: '干烈·草本·优雅',
+          img: 'https://images.pexels.com/photos/5947028/pexels-photo-5947028.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '007最爱，极简而高贵，每一滴都是艺术。',
+          brandNote: 'Tanqueray No.10柑橘清新；Monkey 47植物复杂；Lillet Blanc代替味美思更花香。',
+          ingredients: [{
+            n: '金酒',
+            a: '60ml'
+          }, {
+            n: '干味美思',
+            a: '10ml'
+          }, {
+            n: '橄榄或柠檬皮',
+            a: '装饰'
+          }],
+          steps: ['调酒杯加大量冰', '倒入金酒和干味美思', '搅拌约30秒', '过滤入冰镇马天尼杯', '橄榄/柠檬皮装饰'],
+          tip: '经典争议：搅拌保清澈度；摇匀产生"碎冰花"。James Bond偏好摇匀。'
+        },
+        {
+          id: 11,
+          name: '内格罗尼',
+          enName: 'Negroni',
+          spirits: ['gin', 'wine', 'liqueur'],
+          brands: ['tanqueray', 'hendricks', 'sweet_vermouth', 'campari'],
+          flavor: ['bitter', 'strong'],
+          difficulty: 'easy',
+          color: '#ef4444',
+          abv: '~25%',
+          taste: '苦甜·草本·醇厚',
+          img: 'https://images.pexels.com/photos/5947040/pexels-photo-5947040.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '意大利骄傲，三等份完美平衡，苦甜交织。',
+          brandNote: '金巴利是内格罗尼的灵魂，无可替代；Aperol可代替做"低度内格罗尼"。',
+          ingredients: [{
+            n: '金酒',
+            a: '30ml'
+          }, {
+            n: '甜味美思',
+            a: '30ml'
+          }, {
+            n: '金巴利',
+            a: '30ml'
+          }, {
+            n: '橙皮',
+            a: '装饰'
+          }],
+          steps: ['杯中加大冰块', '三种材料等量倒入', '搅拌约15秒', '橙皮装饰'],
+          tip: '三种材料严格等量是内格罗尼的灵魂，切勿随意调整。'
+        },
+        {
+          id: 12,
+          name: '新加坡司令',
+          enName: 'Singapore Sling',
+          spirits: ['gin', 'liqueur'],
+          brands: ['tanqueray', 'gordons', 'maraschino', 'triple_sec', 'chambord'],
+          flavor: ['sweet', 'tropical', 'sour'],
+          difficulty: 'hard',
+          color: '#ec4899',
+          abv: '~15%',
+          taste: '热带·果香·花香',
+          img: 'https://images.pexels.com/photos/5947022/pexels-photo-5947022.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '莱佛士酒店1915年首创，热带诗篇。',
+          brandNote: '樱桃力娇酒(Heering)是正宗配方核心；Benedictine增添草本深度。',
+          ingredients: [{
+            n: '金酒',
+            a: '30ml'
+          }, {
+            n: '樱桃力娇酒',
+            a: '15ml'
+          }, {
+            n: '菠萝汁',
+            a: '120ml'
+          }, {
+            n: '青柠汁',
+            a: '15ml'
+          }, {
+            n: '石榴糖浆',
+            a: '7ml'
+          }, {
+            n: '苏打水',
+            a: '适量'
+          }],
+          steps: ['摇壶加冰，加入金酒+樱桃力娇+果汁+石榴浆', '摇匀后倒入加冰高杯', '补满苏打水', '菠萝片+樱桃装饰'],
+          tip: '正宗配方还包含Benedictine草本酒和柑橘苦精。'
+        },
+        {
+          id: 13,
+          name: '航空',
+          enName: 'Aviation',
+          spirits: ['gin', 'liqueur'],
+          brands: ['hendricks', 'tanqueray10', 'maraschino', 'creme_violette'],
+          flavor: ['sour', 'sweet'],
+          difficulty: 'medium',
+          color: '#818cf8',
+          abv: '~20%',
+          taste: '花香·樱桃·优雅',
+          img: 'https://images.pexels.com/photos/5947025/pexels-photo-5947025.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '天蓝色浪漫鸡尾酒，紫罗兰花香令人着迷。',
+          brandNote: '紫罗兰力娇酒(Crème de Violette)是天蓝色的来源，不可省略。',
+          ingredients: [{
+            n: '金酒',
+            a: '50ml'
+          }, {
+            n: '紫罗兰力娇酒',
+            a: '7ml'
+          }, {
+            n: '马拉斯奇诺',
+            a: '7ml'
+          }, {
+            n: '柠檬汁',
+            a: '20ml'
+          }],
+          steps: ['摇壶加冰，加入所有材料', '用力摇匀15秒', '双重过滤入鸡尾酒杯', '樱桃装饰'],
+          tip: '紫罗兰力娇酒用量宜少，过多会完全覆盖金酒风味。'
+        },
+        {
+          id: 14,
+          name: '三叶草俱乐部',
+          enName: 'Clover Club',
+          spirits: ['gin'],
+          brands: ['tanqueray', 'hendricks', 'botanist'],
+          flavor: ['sour', 'sweet', 'fresh'],
+          difficulty: 'medium',
+          color: '#fb7185',
+          abv: '~18%',
+          taste: '莓果·丝滑·花香',
+          img: 'https://images.pexels.com/photos/5947023/pexels-photo-5947023.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '禁酒令前经典，草莓果冻般的粉色泡沫令人陶醉。',
+          brandNote: '植物学家的花香与树莓完美契合。',
+          ingredients: [{
+            n: '金酒',
+            a: '50ml'
+          }, {
+            n: '柠檬汁',
+            a: '20ml'
+          }, {
+            n: '树莓糖浆',
+            a: '15ml'
+          }, {
+            n: '蛋白',
+            a: '15ml'
+          }],
+          steps: ['先干摇（无冰）10秒', '加冰再摇15秒', '双重过滤入碟形杯', '3颗树莓装饰'],
+          tip: '蛋白干摇是产生蓬松泡沫的关键技术。'
+        },
+        {
+          id: 15,
+          name: '内格罗尼sbagliato',
+          enName: 'Negroni Sbagliato',
+          spirits: ['wine', 'liqueur'],
+          brands: ['prosecco', 'sweet_vermouth', 'campari'],
+          flavor: ['bitter', 'fresh'],
+          difficulty: 'easy',
+          color: '#f97316',
+          abv: '~12%',
+          taste: '苦橙·气泡·轻盈',
+          img: 'https://images.pexels.com/photos/3407778/pexels-photo-3407778.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '意外诞生的经典，用普罗赛克代替金酒，更低度轻盈。',
+          brandNote: 'Prosecco让整体更清爽；搭配鲜橙皮提味。',
+          ingredients: [{
+            n: '甜味美思',
+            a: '30ml'
+          }, {
+            n: '金巴利',
+            a: '30ml'
+          }, {
+            n: '普罗赛克',
+            a: '60ml'
+          }, {
+            n: '橙皮',
+            a: '装饰'
+          }],
+          steps: ['杯中加冰', '倒入美思和金巴利', '缓倒普罗赛克保留气泡', '轻搅，橙皮装饰'],
+          tip: '意大利语"sbagliato"意为"错误的"——调酒师不小心拿了气泡酒才有了这款鸡尾酒。'
+        },
+        // ── RUM ────────────────────────────────────
+        {
+          id: 16,
+          name: '莫吉托',
+          enName: 'Mojito',
+          spirits: ['rum'],
+          brands: ['bacardi_white', 'havana3', 'plantation3'],
+          flavor: ['sweet', 'fresh', 'sour'],
+          difficulty: 'easy',
+          color: '#34d399',
+          abv: '~11%',
+          taste: '清凉·薄荷·微甜',
+          img: 'https://images.pexels.com/photos/1574650/pexels-photo-1574650.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '古巴经典，薄荷青柠的绝配，夏日必备。',
+          brandNote: 'Havana Club 3年是最正宗的古巴风味组合。',
+          ingredients: [{
+            n: '白朗姆酒',
+            a: '50ml'
+          }, {
+            n: '青柠汁',
+            a: '30ml'
+          }, {
+            n: '糖浆',
+            a: '20ml'
+          }, {
+            n: '薄荷叶',
+            a: '10片'
+          }, {
+            n: '苏打水',
+            a: '适量'
+          }],
+          steps: ['杯中放薄荷叶和青柠汁', '轻压薄荷（不过度）', '加糖浆和碎冰', '倒入朗姆酒搅拌', '补满苏打水，薄荷枝装饰'],
+          tip: '轻压薄荷即可，过度捣碎会产生苦味。'
+        },
+        {
+          id: 17,
+          name: '代基里',
+          enName: 'Daiquiri',
+          spirits: ['rum'],
+          brands: ['bacardi_white', 'havana3', 'plantation3'],
+          flavor: ['sour', 'sweet'],
+          difficulty: 'easy',
+          color: '#fbbf24',
+          abv: '~18%',
+          taste: '酸甜·清爽·纯净',
+          img: 'https://images.pexels.com/photos/4666750/pexels-photo-4666750.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '三料极简，朗姆酒的灵魂体现。',
+          brandNote: '酒质决定一切，建议用Bacardi Carta Blanca或Plantation 3 Stars。',
+          ingredients: [{
+            n: '白朗姆酒',
+            a: '60ml'
+          }, {
+            n: '青柠汁',
+            a: '30ml'
+          }, {
+            n: '糖浆',
+            a: '15ml'
+          }],
+          steps: ['摇壶加冰，倒入所有材料', '用力摇匀15秒', '双重过滤入冰镇碟形杯', '青柠皮卷装饰'],
+          tip: '三料简单，质量最重要。新鲜青柠汁和优质朗姆酒是关键。'
+        },
+        {
+          id: 18,
+          name: '凤梨可乐达',
+          enName: 'Piña Colada',
+          spirits: ['rum', 'liqueur'],
+          brands: ['bacardi_white', 'malibu', 'malibu_liq'],
+          flavor: ['sweet', 'tropical', 'creamy'],
+          difficulty: 'easy',
+          color: '#fcd34d',
+          abv: '~13%',
+          taste: '椰香·热带·甜蜜',
+          img: 'https://images.pexels.com/photos/4666751/pexels-photo-4666751.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '热带经典，椰香浓郁，沙滩的味道。',
+          brandNote: '马利宝椰子朗姆加白朗姆双重椰香；纯白朗姆+椰奶效果更纯粹。',
+          ingredients: [{
+            n: '白朗姆酒',
+            a: '50ml'
+          }, {
+            n: '椰奶',
+            a: '50ml'
+          }, {
+            n: '菠萝汁',
+            a: '100ml'
+          }, {
+            n: '冰块',
+            a: '适量'
+          }],
+          steps: ['所有材料放入搅拌机', '加碎冰高速搅拌30秒', '倒入高脚杯', '菠萝角和樱桃装饰'],
+          tip: '新鲜菠萝汁会大幅提升风味。'
+        },
+        {
+          id: 19,
+          name: '黑暗风暴',
+          enName: "Dark 'n' Stormy",
+          spirits: ['rum'],
+          brands: ['goslings', 'mount_gay', 'appleton'],
+          flavor: ['strong', 'fresh'],
+          difficulty: 'easy',
+          color: '#374151',
+          abv: '~13%',
+          taste: '浓烈·辛辣·深沉',
+          img: 'https://images.pexels.com/photos/5947049/pexels-photo-5947049.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '深色朗姆浮于姜汁啤酒之上，海洋的力量。',
+          brandNote: 'Gosling\'s Black Seal是官方认证原配基酒。',
+          ingredients: [{
+            n: '深色朗姆酒',
+            a: '60ml'
+          }, {
+            n: '姜汁啤酒',
+            a: '150ml'
+          }, {
+            n: '青柠汁',
+            a: '15ml'
+          }],
+          steps: ['高杯加冰', '倒入姜汁啤酒', '用吧匙辅助将深色朗姆缓缓浮在顶部', '青柠角装饰'],
+          tip: '深色朗姆漂浮是视觉亮点，饮前会自然混合。'
+        },
+        {
+          id: 20,
+          name: '迈泰',
+          enName: 'Mai Tai',
+          spirits: ['rum'],
+          brands: ['appleton', 'mount_gay', 'zacapa', 'cointreau', 'triple_sec'],
+          flavor: ['tropical', 'sweet', 'sour'],
+          difficulty: 'medium',
+          color: '#f97316',
+          abv: '~17%',
+          taste: '坚果·热带·朗姆',
+          img: 'https://images.pexels.com/photos/4666748/pexels-photo-4666748.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '波利尼西亚热带风情，迪斯尼乐园的阳光。',
+          brandNote: '用两种朗姆酒（白+深色）效果最佳，Appleton Estate层次丰富。',
+          ingredients: [{
+            n: '白朗姆酒',
+            a: '30ml'
+          }, {
+            n: '深色朗姆酒',
+            a: '15ml（漂浮）'
+          }, {
+            n: '橙皮力娇酒',
+            a: '15ml'
+          }, {
+            n: '青柠汁',
+            a: '30ml'
+          }, {
+            n: '杏仁糖浆',
+            a: '15ml'
+          }],
+          steps: ['摇壶加冰，加入白朗姆+力娇酒+青柠汁+杏仁浆', '摇匀倒入加碎冰的杯子', '用吧匙背将深色朗姆漂浮在顶部', '薄荷枝+菠萝旗装饰'],
+          tip: '杏仁糖浆(Orgeat)是迈泰的特色，不可用普通糖浆替代。'
+        },
+        {
+          id: 21,
+          name: '飓风',
+          enName: 'Hurricane',
+          spirits: ['rum'],
+          brands: ['bacardi_white', 'goslings', 'mount_gay', 'passoa'],
+          flavor: ['tropical', 'sweet', 'sour'],
+          difficulty: 'easy',
+          color: '#ef4444',
+          abv: '~14%',
+          taste: '热带·百香果·浓烈',
+          img: 'https://images.pexels.com/photos/5947046/pexels-photo-5947046.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '新奥尔良酒吧Pat O\'Brien\'s经典，颜色如飓风般鲜艳。',
+          brandNote: 'Passoã百香果力娇是风味核心。',
+          ingredients: [{
+            n: '深色朗姆酒',
+            a: '60ml'
+          }, {
+            n: '百香果果汁',
+            a: '60ml'
+          }, {
+            n: '橙汁',
+            a: '30ml'
+          }, {
+            n: '青柠汁',
+            a: '15ml'
+          }, {
+            n: '石榴糖浆',
+            a: '15ml'
+          }],
+          steps: ['摇壶加冰，加入所有材料', '摇匀后倒入加冰飓风杯', '橙片和樱桃装饰'],
+          tip: '飓风杯是专属杯型，杯形像台风造型，非常有仪式感。'
+        },
+        // ── TEQUILA ─────────────────────────────────
+        {
+          id: 22,
+          name: '玛格丽特',
+          enName: 'Margarita',
+          spirits: ['tequila', 'liqueur'],
+          brands: ['patron_s', 'espolon', 'cointreau', 'triple_sec'],
+          flavor: ['sour', 'sweet'],
+          difficulty: 'easy',
+          color: '#fb923c',
+          abv: '~20%',
+          taste: '酸咸·清爽·明快',
+          img: 'https://images.pexels.com/photos/5947016/pexels-photo-5947016.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '墨西哥灵魂，盐边杯口是最经典的特征。',
+          brandNote: 'Cointreau比Triple Sec更优雅；银色龙舌兰(Blanco)口感最清爽。',
+          ingredients: [{
+            n: '龙舌兰酒(Blanco)',
+            a: '50ml'
+          }, {
+            n: '橙皮力娇酒',
+            a: '20ml'
+          }, {
+            n: '青柠汁',
+            a: '30ml'
+          }, {
+            n: '盐',
+            a: '杯口装饰'
+          }],
+          steps: ['青柠汁润湿杯口，蘸盐制作盐边', '摇壶加冰，倒入所有材料', '用力摇匀15秒', '过滤入杯', '青柠角装饰'],
+          tip: '盐边只做半圈，让客人可选择是否喝到盐味。'
+        },
+        {
+          id: 23,
+          name: '冻草莓玛格丽特',
+          enName: 'Frozen Strawberry Margarita',
+          spirits: ['tequila', 'liqueur'],
+          brands: ['espolon', 'patron_s', 'cointreau', 'chambord'],
+          flavor: ['sweet', 'sour', 'tropical'],
+          difficulty: 'easy',
+          color: '#f43f5e',
+          abv: '~14%',
+          taste: '草莓·冰沙·清凉',
+          img: 'https://images.pexels.com/photos/5947050/pexels-photo-5947050.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '夏日必备，草莓冰沙版玛格丽特。',
+          brandNote: '加Chambord黑覆盆子力娇酒增加莓果深度。',
+          ingredients: [{
+            n: '龙舌兰酒',
+            a: '45ml'
+          }, {
+            n: '橙皮力娇酒',
+            a: '15ml'
+          }, {
+            n: '青柠汁',
+            a: '25ml'
+          }, {
+            n: '新鲜草莓',
+            a: '6颗'
+          }, {
+            n: '冰块',
+            a: '大量'
+          }],
+          steps: ['所有材料放入搅拌机', '加大量冰块', '高速搅拌至顺滑', '倒入玛格丽特杯', '草莓装饰'],
+          tip: '可加糖浆调甜度，草莓熟透更佳。'
+        },
+        {
+          id: 24,
+          name: '龙舌兰日出',
+          enName: 'Tequila Sunrise',
+          spirits: ['tequila'],
+          brands: ['patron_s', 'espolon', 'don_julio'],
+          flavor: ['sweet', 'tropical'],
+          difficulty: 'easy',
+          color: '#f97316',
+          abv: '~11%',
+          taste: '甜蜜·果香·缤纷',
+          img: 'https://images.pexels.com/photos/3407778/pexels-photo-3407778.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '渐变橙红如日出，视觉与口感皆美。',
+          brandNote: '颜色渐变无关品牌，技术才是关键。',
+          ingredients: [{
+            n: '龙舌兰酒',
+            a: '45ml'
+          }, {
+            n: '鲜榨橙汁',
+            a: '120ml'
+          }, {
+            n: '石榴糖浆',
+            a: '15ml'
+          }],
+          steps: ['高杯加满冰', '倒入龙舌兰', '缓缓倒入橙汁（不搅拌）', '用吧匙背将石榴浆沉入底部', '橙片装饰，上桌后再搅拌'],
+          tip: '石榴糖浆密度大，自然沉底形成渐变，上桌前切勿搅拌。'
+        },
+        {
+          id: 25,
+          name: '帕洛玛',
+          enName: 'Paloma',
+          spirits: ['tequila'],
+          brands: ['espolon', 'patron_s', 'don_julio'],
+          flavor: ['sour', 'fresh'],
+          difficulty: 'easy',
+          color: '#fb7185',
+          abv: '~12%',
+          taste: '西柚·清新·酸爽',
+          img: 'https://images.pexels.com/photos/5947050/pexels-photo-5947050.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '墨西哥最受欢迎饮品，西柚清新酸爽。',
+          brandNote: '银色龙舌兰最清爽；加少许盐是神来之笔。',
+          ingredients: [{
+            n: '龙舌兰酒',
+            a: '50ml'
+          }, {
+            n: '西柚汁',
+            a: '100ml'
+          }, {
+            n: '青柠汁',
+            a: '15ml'
+          }, {
+            n: '苏打水',
+            a: '适量'
+          }, {
+            n: '盐',
+            a: '少许'
+          }],
+          steps: ['高杯加冰', '加龙舌兰+西柚汁+青柠汁', '撒少许盐', '补满苏打水，西柚角装饰'],
+          tip: '盐能神奇地增强西柚甜味，减少苦感。'
+        },
+        {
+          id: 26,
+          name: '烟熏玛格丽特',
+          enName: 'Smoky Margarita',
+          spirits: ['tequila'],
+          brands: ['del_maguey', 'montelobos', 'cointreau'],
+          flavor: ['smoky', 'sour'],
+          difficulty: 'medium',
+          color: '#78716c',
+          abv: '~22%',
+          taste: '烟熏·龙舌兰·泥土',
+          img: 'https://images.pexels.com/photos/5947040/pexels-photo-5947040.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '用梅斯卡尔代替龙舌兰，烟熏感十足。',
+          brandNote: 'Del Maguey Vida是烟熏感的灵魂，不可替换。',
+          ingredients: [{
+            n: '梅斯卡尔',
+            a: '50ml'
+          }, {
+            n: '君度',
+            a: '15ml'
+          }, {
+            n: '青柠汁',
+            a: '30ml'
+          }, {
+            n: '龙舌兰盐',
+            a: '杯口'
+          }],
+          steps: ['焦盐（可加辣椒）润杯口', '摇壶加冰，加入所有材料', '大力摇匀', '过滤入杯'],
+          tip: '梅斯卡尔烟熏感很强，若觉过重可与银色龙舌兰1:1混合。'
+        },
+        {
+          id: 27,
+          name: '特基拉炸弹',
+          enName: 'Tequila Shot',
+          spirits: ['tequila'],
+          brands: ['espolon', 'patron_s', 'clase_az'],
+          flavor: ['strong'],
+          difficulty: 'easy',
+          color: '#eab308',
+          abv: '~40%',
+          taste: '烈·仪式·Party',
+          img: 'https://images.pexels.com/photos/5947046/pexels-photo-5947046.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '盐·龙舌兰·柠檬，三步仪式，派对精神。',
+          brandNote: '越高端的龙舌兰越不应该这么喝——但Clase Azul不在乎。',
+          ingredients: [{
+            n: '龙舌兰酒',
+            a: '50ml'
+          }, {
+            n: '柠檬角',
+            a: '1块'
+          }, {
+            n: '盐',
+            a: '适量'
+          }],
+          steps: ['虎口撒盐', '一口舔盐', '一口喝干龙舌兰', '一口咬柠檬'],
+          tip: '优质龙舌兰应该细品，炸弹喝法适合平价款。'
+        },
+        // ── WHISKEY ──────────────────────────────────
+        {
+          id: 28,
+          name: '古典鸡尾酒',
+          enName: 'Old Fashioned',
+          spirits: ['whiskey'],
+          brands: ['buffalo', 'woodford', 'makers', 'wild_turkey'],
+          flavor: ['strong', 'bitter'],
+          difficulty: 'medium',
+          color: '#d97706',
+          abv: '~33%',
+          taste: '浓郁·木香·苦甜',
+          img: 'https://images.pexels.com/photos/5947030/pexels-photo-5947030.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '威士忌纯粹表达，苦精与糖的完美衬托。',
+          brandNote: 'Buffalo Trace焦糖香草；Woodford Reserve浆果香料；高度Wild Turkey增强辛辣。',
+          ingredients: [{
+            n: '波本威士忌',
+            a: '60ml'
+          }, {
+            n: '方糖',
+            a: '1块'
+          }, {
+            n: '安格斯图拉苦精',
+            a: '2-3滴'
+          }, {
+            n: '橙皮',
+            a: '装饰'
+          }],
+          steps: ['杯底放方糖，滴苦精', '加少许水将方糖捣溶', '加入大块冰', '倒入威士忌轻搅20秒', '橙皮卷挤油入杯'],
+          tip: '大冰块减缓融化，是保持风味的关键。'
+        },
+        {
+          id: 29,
+          name: '曼哈顿',
+          enName: 'Manhattan',
+          spirits: ['whiskey', 'wine'],
+          brands: ['rittenhouse', 'woodford', 'sweet_vermouth', 'angostura'],
+          flavor: ['strong', 'bitter', 'sweet'],
+          difficulty: 'medium',
+          color: '#b45309',
+          abv: '~27%',
+          taste: '醇厚·甜辛·复杂',
+          img: 'https://images.pexels.com/photos/5947032/pexels-photo-5947032.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '纽约最具代表性的鸡尾酒，优雅而有力量。',
+          brandNote: '黑麦威士忌辛辣更突出；波本版本更甜柔；Carpano Antica Formula意大利美思是绝配。',
+          ingredients: [{
+            n: '黑麦威士忌',
+            a: '50ml'
+          }, {
+            n: '甜味美思',
+            a: '25ml'
+          }, {
+            n: '安格斯图拉苦精',
+            a: '2滴'
+          }, {
+            n: '马拉斯奇诺樱桃',
+            a: '1颗'
+          }],
+          steps: ['调酒杯加冰', '加入威士忌+美思+苦精', '搅拌30秒', '过滤入冰镇鸡尾酒杯', '樱桃装饰'],
+          tip: '甜味美思开封后需冷藏，否则风味迅速衰退。'
+        },
+        {
+          id: 30,
+          name: '威士忌酸',
+          enName: 'Whiskey Sour',
+          spirits: ['whiskey'],
+          brands: ['buffalo', 'woodford', 'makers', 'amaretto'],
+          flavor: ['sour', 'sweet'],
+          difficulty: 'medium',
+          color: '#f59e0b',
+          abv: '~18%',
+          taste: '酸甜·木桶·顺滑',
+          img: 'https://images.pexels.com/photos/3407780/pexels-photo-3407780.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '经典酸甜平衡，加蛋白更添顺滑感。',
+          brandNote: 'Amaretto杏仁力娇可替代部分威士忌，制作"Amaretto Sour"。',
+          ingredients: [{
+            n: '波本威士忌',
+            a: '50ml'
+          }, {
+            n: '柠檬汁',
+            a: '25ml'
+          }, {
+            n: '糖浆',
+            a: '20ml'
+          }, {
+            n: '蛋白',
+            a: '15ml（可选）'
+          }],
+          steps: ['若加蛋白先干摇10秒', '加冰再摇15秒', '过滤入威士忌杯', '苦精在泡沫上画图案'],
+          tip: '蛋白干摇技术(dry shake)让泡沫更细腻稳定。'
+        },
+        {
+          id: 31,
+          name: '薄荷朱利普',
+          enName: 'Mint Julep',
+          spirits: ['whiskey'],
+          brands: ['woodford', 'buffalo', 'makers'],
+          flavor: ['strong', 'fresh', 'sweet'],
+          difficulty: 'medium',
+          color: '#10b981',
+          abv: '~25%',
+          taste: '薄荷·木桶·清凉',
+          img: 'https://images.pexels.com/photos/1170005/pexels-photo-1170005.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '肯塔基德比官方指定饮品，薄荷与波本的浪漫。',
+          brandNote: 'Woodford Reserve是肯塔基德比官方合作品牌。',
+          ingredients: [{
+            n: '波本威士忌',
+            a: '60ml'
+          }, {
+            n: '薄荷叶',
+            a: '8-10片'
+          }, {
+            n: '糖浆',
+            a: '15ml'
+          }, {
+            n: '碎冰',
+            a: '大量'
+          }],
+          steps: ['银杯中放薄荷叶和糖浆', '轻捣薄荷', '加满碎冰', '倒入波本轻搅', '补充碎冰至冒尖，薄荷枝装饰'],
+          tip: '传统使用银杯，形成漂亮霜冻效果。碎冰是关键。'
+        },
+        {
+          id: 32,
+          name: '撒泽拉克',
+          enName: 'Sazerac',
+          spirits: ['whiskey', 'liqueur'],
+          brands: ['rittenhouse', 'wild_turkey', 'absinthe', 'peychauds'],
+          flavor: ['strong', 'bitter'],
+          difficulty: 'hard',
+          color: '#d97706',
+          abv: '~30%',
+          taste: '黑麦·茴香·苦甜',
+          img: 'https://images.pexels.com/photos/5947032/pexels-photo-5947032.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '新奥尔良最古老的鸡尾酒，美国第一款鸡尾酒之称。',
+          brandNote: 'Peychaud\'s苦精是撒泽拉克不可替代的灵魂；苦艾酒漂洗杯壁是核心技法。',
+          ingredients: [{
+            n: '黑麦威士忌',
+            a: '60ml'
+          }, {
+            n: '方糖',
+            a: '1块'
+          }, {
+            n: "Peychaud's苦精",
+            a: '4滴'
+          }, {
+            n: '苦艾酒',
+            a: '漂洗杯壁'
+          }],
+          steps: ["用苦艾酒漂洗冰镇老式杯，倒掉多余", '另一杯中溶化方糖+苦精', '加冰+黑麦威士忌搅拌', '过滤入苦艾酒杯', '柠檬皮装饰（不放入杯中）'],
+          tip: '柠檬皮只挤出精油滴在杯口，不放入杯中，这是撒泽拉克规矩。'
+        },
+        {
+          id: 33,
+          name: '锈钉',
+          enName: 'Rusty Nail',
+          spirits: ['whiskey', 'liqueur'],
+          brands: ['johnnie_bk', 'glenfiddich', 'benedictine'],
+          flavor: ['sweet', 'strong'],
+          difficulty: 'easy',
+          color: '#92400e',
+          abv: '~32%',
+          taste: '蜂蜜·草本·苏格兰',
+          img: 'https://images.pexels.com/photos/5947028/pexels-photo-5947028.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '苏格兰威士忌与蜂蜜蜂蜜草本利口酒的完美联姻。',
+          brandNote: 'Drambuie(蜂蜜威士忌利口)是标准搭配；Benedictine风格迥异但各有千秋。',
+          ingredients: [{
+            n: '苏格兰威士忌',
+            a: '50ml'
+          }, {
+            n: 'Drambuie蜂蜜威士忌利口',
+            a: '20ml'
+          }, {
+            n: '冰块',
+            a: '大块'
+          }],
+          steps: ['老式杯加大冰块', '倒入威士忌和Drambuie', '轻搅约10秒', '柠檬皮装饰'],
+          tip: '比例可调整：喜甜多加Drambuie，喜烈多加威士忌。'
+        },
+        {
+          id: 34,
+          name: '罗布罗伊',
+          enName: 'Rob Roy',
+          spirits: ['whiskey', 'wine'],
+          brands: ['johnnie_bk', 'glenfiddich', 'macallan', 'sweet_vermouth', 'angostura'],
+          flavor: ['strong', 'sweet', 'bitter'],
+          difficulty: 'medium',
+          color: '#9f1239',
+          abv: '~27%',
+          taste: '苏格兰·烟熏·复杂',
+          img: 'https://images.pexels.com/photos/5947032/pexels-photo-5947032.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '苏格兰版曼哈顿，泥炭烟熏增添神秘层次。',
+          brandNote: 'Laphroaig强烈泥炭版极具个性；Macallan甜美果干版更平易近人。',
+          ingredients: [{
+            n: '苏格兰调和威士忌',
+            a: '50ml'
+          }, {
+            n: '甜味美思',
+            a: '25ml'
+          }, {
+            n: '安格斯图拉苦精',
+            a: '2滴'
+          }, {
+            n: '马拉斯奇诺樱桃',
+            a: '1颗'
+          }],
+          steps: ['调酒杯加冰', '加入威士忌+美思+苦精', '搅拌30秒', '过滤入鸡尾酒杯', '樱桃装饰'],
+          tip: '用Laphroaig制作"烟熏罗布罗伊"令人难忘，但需要接受强泥炭味。'
+        },
+        // ── BRANDY ───────────────────────────────────
+        {
+          id: 35,
+          name: '边车',
+          enName: 'Sidecar',
+          spirits: ['brandy', 'liqueur'],
+          brands: ['hennessy', 'remy', 'cointreau', 'grand_marnier'],
+          flavor: ['sour', 'sweet'],
+          difficulty: 'medium',
+          color: '#d97706',
+          abv: '~25%',
+          taste: '果香·酸甜·典雅',
+          img: 'https://images.pexels.com/photos/5947025/pexels-photo-5947025.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '法式优雅，干邑与橙皮的经典组合。',
+          brandNote: 'Grand Marnier代替Cointreau，增添干邑深度；Hennessy VSOP果香丰富。',
+          ingredients: [{
+            n: '干邑白兰地',
+            a: '50ml'
+          }, {
+            n: '橙皮力娇酒',
+            a: '25ml'
+          }, {
+            n: '柠檬汁',
+            a: '20ml'
+          }, {
+            n: '糖',
+            a: '杯口装饰'
+          }],
+          steps: ['柠檬汁润湿杯口，蘸糖制作糖边', '摇壶加冰，倒入全部材料', '用力摇匀15秒', '过滤入糖边杯子'],
+          tip: 'VSOP级别以上干邑效果最佳。'
+        },
+        {
+          id: 36,
+          name: '亚历山大',
+          enName: 'Brandy Alexander',
+          spirits: ['brandy', 'liqueur'],
+          brands: ['hennessy', 'remy', 'creme_cacao', 'baileys'],
+          flavor: ['sweet', 'creamy'],
+          difficulty: 'easy',
+          color: '#d4a574',
+          abv: '~20%',
+          taste: '奶油·可可·绵柔',
+          img: 'https://images.pexels.com/photos/5947031/pexels-photo-5947031.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '奶油与白兰地的绵柔组合，甜蜜如丝绒。',
+          brandNote: '深色可可力娇增添浓郁巧克力感；白色可可力娇更清爽。',
+          ingredients: [{
+            n: '干邑白兰地',
+            a: '30ml'
+          }, {
+            n: '可可力娇酒',
+            a: '30ml'
+          }, {
+            n: '鲜奶油',
+            a: '30ml'
+          }, {
+            n: '肉豆蔻粉',
+            a: '装饰'
+          }],
+          steps: ['摇壶加冰', '倒入白兰地+可可力娇+奶油', '用力摇匀15秒', '过滤入鸡尾酒杯', '撒肉豆蔻粉装饰'],
+          tip: '鲜奶油比例可增减调节浓郁度。'
+        },
+        {
+          id: 37,
+          name: '苹果马车',
+          enName: 'Jack Rose',
+          spirits: ['brandy'],
+          brands: ['laird', 'boulard'],
+          flavor: ['sour', 'sweet'],
+          difficulty: 'medium',
+          color: '#f43f5e',
+          abv: '~20%',
+          taste: '苹果·石榴·粉红',
+          img: 'https://images.pexels.com/photos/5947017/pexels-photo-5947017.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '苹果白兰地的代表作，石榴糖浆染出迷人粉红。',
+          brandNote: "Laird's Applejack是最经典的美国苹果白兰地。",
+          ingredients: [{
+            n: '苹果白兰地/Calvados',
+            a: '50ml'
+          }, {
+            n: '青柠汁',
+            a: '20ml'
+          }, {
+            n: '石榴糖浆',
+            a: '15ml'
+          }],
+          steps: ['摇壶加冰', '加入所有材料', '用力摇匀15秒', '过滤入鸡尾酒杯'],
+          tip: '石榴糖浆用量控制颜色和甜度的平衡。'
+        },
+        // ── LIQUEUR / 利口酒 ─────────────────────────
+        {
+          id: 38,
+          name: 'B52轰炸机',
+          enName: 'B-52',
+          spirits: ['liqueur'],
+          brands: ['kahlua', 'baileys', 'cointreau', 'grand_marnier'],
+          flavor: ['sweet', 'strong', 'creamy'],
+          difficulty: 'hard',
+          color: '#f97316',
+          abv: '~24%',
+          taste: '咖啡·奶油·橙香',
+          img: 'https://images.pexels.com/photos/5947039/pexels-photo-5947039.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '三层漂浮，层次分明，点燃后更有仪式感。',
+          brandNote: '标准三层：Kahlúa底+Baileys中+Cointreau顶；可用Grand Marnier代替Cointreau。',
+          ingredients: [{
+            n: '咖啡力娇酒(Kahlúa)',
+            a: '20ml'
+          }, {
+            n: '爱尔兰奶油酒(Baileys)',
+            a: '20ml'
+          }, {
+            n: '橙皮力娇酒(Cointreau)',
+            a: '20ml'
+          }],
+          steps: ['小杯倒入咖啡力娇酒', '用吧匙背缓缓将奶油酒浮在第二层', '再将橙皮力娇酒浮在第三层', '点燃顶层，熄灭后快速饮用'],
+          tip: '密度从大到小决定浮层成功，吧匙要贴近杯壁。'
+        },
+        {
+          id: 39,
+          name: '泥石流',
+          enName: 'Mudslide',
+          spirits: ['vodka', 'liqueur'],
+          brands: ['absolut', 'kahlua', 'baileys'],
+          flavor: ['sweet', 'creamy'],
+          difficulty: 'easy',
+          color: '#78350f',
+          abv: '~18%',
+          taste: '巧克力·奶油·咖啡',
+          img: 'https://images.pexels.com/photos/5947043/pexels-photo-5947043.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '液态提拉米苏，奶油咖啡巧克力的完美融合。',
+          brandNote: '三大品牌均不可缺少：伏特加+Kahlúa+Baileys的黄金组合。',
+          ingredients: [{
+            n: '伏特加',
+            a: '30ml'
+          }, {
+            n: 'Kahlúa咖啡力娇',
+            a: '30ml'
+          }, {
+            n: 'Baileys爱尔兰奶油',
+            a: '30ml'
+          }, {
+            n: '冰淇淋',
+            a: '一勺（冻版）'
+          }],
+          steps: ['摇壶加冰或搅拌机加冰淇淋', '加入所有材料', '摇匀或搅拌至顺滑', '倒入杯中', '巧克力酱装饰'],
+          tip: '加冰淇淋用搅拌机做成冻版更浓郁。'
+        },
+        {
+          id: 40,
+          name: '百利甜马天尼',
+          enName: 'Baileys Martini',
+          spirits: ['vodka', 'liqueur'],
+          brands: ['absolut', 'grey_goose', 'baileys', 'kahlua'],
+          flavor: ['sweet', 'creamy'],
+          difficulty: 'easy',
+          color: '#c2a16b',
+          abv: '~20%',
+          taste: '奶油·咖啡·丝滑',
+          img: 'https://images.pexels.com/photos/5947028/pexels-photo-5947028.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '马天尼杯盛放奶油咖啡，优雅而放纵。',
+          brandNote: '高端伏特加(Grey Goose)让口感更顺滑。',
+          ingredients: [{
+            n: '伏特加',
+            a: '30ml'
+          }, {
+            n: 'Baileys百利甜',
+            a: '45ml'
+          }, {
+            n: 'Kahlúa卡鲁哇',
+            a: '15ml'
+          }],
+          steps: ['摇壶加冰', '加入所有材料', '用力摇匀15秒', '过滤入冰镇马天尼杯', '巧克力粉装饰'],
+          tip: '提前冷冻杯子，可以保持奶油质地更长时间。'
+        },
+        {
+          id: 41,
+          name: '翡翠之吻',
+          enName: 'Grasshopper',
+          spirits: ['liqueur'],
+          brands: ['creme_menthe', 'creme_cacao', 'baileys'],
+          flavor: ['sweet', 'fresh', 'creamy'],
+          difficulty: 'easy',
+          color: '#4ade80',
+          abv: '~20%',
+          taste: '薄荷·巧克力·清凉',
+          img: 'https://images.pexels.com/photos/5947043/pexels-photo-5947043.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '绿色薄荷奶油，像液态薄荷巧克力糖。',
+          brandNote: '绿色薄荷力娇酒(Green Crème de Menthe)是颜色和风味来源。',
+          ingredients: [{
+            n: '绿薄荷力娇酒',
+            a: '30ml'
+          }, {
+            n: '白色可可力娇酒',
+            a: '30ml'
+          }, {
+            n: '鲜奶油',
+            a: '30ml'
+          }],
+          steps: ['摇壶加冰', '加入所有材料', '用力摇匀15秒', '过滤入碟形杯'],
+          tip: '绿色薄荷力娇和白色可可力娇的组合创造出清凉巧克力风味。'
+        },
+        {
+          id: 42,
+          name: '长岛冰茶',
+          enName: 'Long Island Iced Tea',
+          spirits: ['vodka', 'gin', 'rum', 'tequila', 'liqueur'],
+          brands: ['smirnoff', 'gordons', 'bacardi_white', 'espolon', 'triple_sec'],
+          flavor: ['strong', 'sour'],
+          difficulty: 'medium',
+          color: '#ca8a04',
+          abv: '~22%',
+          taste: '强烈·复杂·危险',
+          img: 'https://images.pexels.com/photos/5947023/pexels-photo-5947023.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '四大烈酒同台，外表是冰茶，内核是炸弹。',
+          brandNote: '使用平价酒即可，用量少，重在平衡；可乐给予颜色。',
+          ingredients: [{
+            n: '伏特加',
+            a: '15ml'
+          }, {
+            n: '金酒',
+            a: '15ml'
+          }, {
+            n: '白朗姆酒',
+            a: '15ml'
+          }, {
+            n: '龙舌兰酒',
+            a: '15ml'
+          }, {
+            n: '橙皮力娇酒',
+            a: '15ml'
+          }, {
+            n: '柠檬汁',
+            a: '25ml'
+          }, {
+            n: '糖浆',
+            a: '15ml'
+          }, {
+            n: '可乐',
+            a: '适量'
+          }],
+          steps: ['高杯加满冰', '摇壶加冰，加入前五种酒精', '加柠檬汁和糖浆', '摇匀倒入高杯', '补满可乐，柠檬角装饰'],
+          tip: '酒精度非常高，外表无害实则危险，请谨慎饮用。'
+        },
+        {
+          id: 43,
+          name: '彩虹鸡尾酒',
+          enName: 'Rainbow Shot',
+          spirits: ['liqueur'],
+          brands: ['kahlua', 'creme_menthe', 'blue_curacao', 'creme_violette', 'chambord'],
+          flavor: ['sweet', 'tropical'],
+          difficulty: 'hard',
+          color: '#8b5cf6',
+          abv: '~15%',
+          taste: '彩虹·多彩·视觉艺术',
+          img: 'https://images.pexels.com/photos/5947026/pexels-photo-5947026.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '七色渐变，每层不同风味，需要耐心和技巧。',
+          brandNote: '选取密度不同的多种力娇酒，严格按密度从重到轻排列。',
+          ingredients: [{
+            n: '石榴糖浆（红）',
+            a: '15ml'
+          }, {
+            n: 'Kahlúa（棕）',
+            a: '15ml'
+          }, {
+            n: '薄荷力娇（绿）',
+            a: '15ml'
+          }, {
+            n: '蓝橙力娇（蓝）',
+            a: '15ml'
+          }, {
+            n: '紫罗兰力娇（紫）',
+            a: '15ml'
+          }],
+          steps: ['从密度最大（最甜）到最小排列顺序', '用吧匙背缓缓注入每层', '极慢极稳，不要晃动'],
+          tip: '密度是关键：糖分越高越重越沉底。需要大量练习。'
+        },
+        // ── WINE / 葡萄酒 ────────────────────────────
+        {
+          id: 44,
+          name: '含羞草',
+          enName: 'Mimosa',
+          spirits: ['wine'],
+          brands: ['champagne', 'prosecco', 'cava'],
+          flavor: ['sweet', 'fresh'],
+          difficulty: 'easy',
+          color: '#fbbf24',
+          abv: '~6%',
+          taste: '清新·果香·气泡',
+          img: 'https://images.pexels.com/photos/5947033/pexels-photo-5947033.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '香槟与橙汁的黄金搭档，早午餐的阳光。',
+          brandNote: 'Prosecco平价且气泡更甜美；香槟更干爽精致。',
+          ingredients: [{
+            n: '香槟/起泡酒',
+            a: '90ml'
+          }, {
+            n: '鲜榨橙汁',
+            a: '90ml'
+          }],
+          steps: ['提前冷藏香槟和橙汁', '笛形杯先倒橙汁', '缓缓倒入香槟保留气泡', '橙片装饰'],
+          tip: '两者等量是标准；务必使用冷藏材料。'
+        },
+        {
+          id: 45,
+          name: '贝里尼',
+          enName: 'Bellini',
+          spirits: ['wine'],
+          brands: ['prosecco', 'champagne'],
+          flavor: ['sweet', 'fresh', 'tropical'],
+          difficulty: 'easy',
+          color: '#f9a8d4',
+          abv: '~6%',
+          taste: '桃香·气泡·威尼斯',
+          img: 'https://images.pexels.com/photos/5947017/pexels-photo-5947017.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '威尼斯Harry\'s Bar首创，新鲜蜜桃汁与起泡酒的夏日恋情。',
+          brandNote: 'Prosecco是Bellini的传统搭档，香槟过于强势。',
+          ingredients: [{
+            n: 'Prosecco起泡酒',
+            a: '100ml'
+          }, {
+            n: '新鲜白桃泥',
+            a: '50ml'
+          }],
+          steps: ['新鲜白桃去皮打成泥', '笛形杯倒入桃泥', '缓缓倒入冷藏Prosecco', '轻搅至混合均匀'],
+          tip: '新鲜白桃是正宗标准，黄桃风味偏差较大。'
+        },
+        {
+          id: 46,
+          name: '桑格利亚',
+          enName: 'Sangria',
+          spirits: ['wine', 'brandy'],
+          brands: ['red_wine', 'hennessy', 'remy'],
+          flavor: ['sweet', 'tropical', 'fresh'],
+          difficulty: 'easy',
+          color: '#9f1239',
+          abv: '~10%',
+          taste: '果香·甜蜜·热情',
+          img: 'https://images.pexels.com/photos/4667040/pexels-photo-4667040.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '西班牙水果酒，派对必备，一大壶的欢乐。',
+          brandNote: '加入一点白兰地（可选）能增强酒味层次；红葡萄酒选中等单宁款。',
+          ingredients: [{
+            n: '干红葡萄酒',
+            a: '750ml'
+          }, {
+            n: '橙子切片',
+            a: '1个'
+          }, {
+            n: '柠檬切片',
+            a: '1个'
+          }, {
+            n: '苹果切块',
+            a: '1个'
+          }, {
+            n: '橙汁',
+            a: '120ml'
+          }, {
+            n: '糖浆',
+            a: '30ml'
+          }, {
+            n: '白兰地',
+            a: '60ml（可选）'
+          }],
+          steps: ['水果切块放入大壶', '倒入红酒+橙汁+糖浆', '可加白兰地增强酒味', '冷藏至少4小时', '加冰杯中饮用'],
+          tip: '提前一天制作最佳，水果越久风味越丰富。'
+        },
+        {
+          id: 47,
+          name: '纽约酸',
+          enName: 'New York Sour',
+          spirits: ['whiskey', 'wine'],
+          brands: ['woodford', 'buffalo', 'red_wine'],
+          flavor: ['sour', 'sweet', 'bitter'],
+          difficulty: 'medium',
+          color: '#dc2626',
+          abv: '~18%',
+          taste: '酸甜·单宁·复杂',
+          img: 'https://images.pexels.com/photos/5947030/pexels-photo-5947030.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '威士忌酸升级版，漂浮红酒层令人惊艳。',
+          brandNote: '漂浮红葡萄酒用果香型（如Malbec）；波本的焦糖与单宁完美呼应。',
+          ingredients: [{
+            n: '波本威士忌',
+            a: '50ml'
+          }, {
+            n: '柠檬汁',
+            a: '25ml'
+          }, {
+            n: '糖浆',
+            a: '20ml'
+          }, {
+            n: '蛋白',
+            a: '15ml'
+          }, {
+            n: '干红葡萄酒',
+            a: '20ml（漂浮）'
+          }],
+          steps: ['先干摇蛋白10秒', '加冰再摇威士忌+柠檬汁+糖浆', '过滤入杯', '用吧匙背将红酒轻轻浮在顶部'],
+          tip: '红酒漂浮层是视觉和风味的双重升级。'
+        },
+        {
+          id: 48,
+          name: '基尔',
+          enName: 'Kir',
+          spirits: ['wine', 'liqueur'],
+          brands: ['white_wine', 'creme_cassis', 'chambord'],
+          flavor: ['sweet', 'fresh'],
+          difficulty: 'easy',
+          color: '#e11d48',
+          abv: '~10%',
+          taste: '黑醋栗·白葡萄酒·开胃',
+          img: 'https://images.pexels.com/photos/5947017/pexels-photo-5947017.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '法国勃艮第经典开胃酒，黑醋栗染出迷人红色。',
+          brandNote: 'Crème de Cassis(黑醋栗力娇)是必须；用香槟代替白葡萄酒即是"Kir Royale"。',
+          ingredients: [{
+            n: '干白葡萄酒',
+            a: '120ml'
+          }, {
+            n: '黑醋栗力娇酒',
+            a: '15ml'
+          }],
+          steps: ['白葡萄酒倒入杯中', '加入黑醋栗力娇酒（沉底自然渐变）'],
+          tip: '喝之前不要搅拌，欣赏渐变色后再混合饮用。'
+        },
+        // ── 经典混搭 ─────────────────────────────────
+        {
+          id: 49,
+          name: '维斯帕马天尼',
+          enName: 'Vesper Martini',
+          spirits: ['gin', 'vodka', 'wine'],
+          brands: ['tanqueray10', 'gordons', 'grey_goose', 'lillet'],
+          flavor: ['strong', 'bitter'],
+          difficulty: 'hard',
+          color: '#fde047',
+          abv: '~30%',
+          taste: '金酒·伏特加·苦橙',
+          img: 'https://images.pexels.com/photos/5947028/pexels-photo-5947028.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '邦德的原创版本，3:1:0.5的精确比例，以维斯帕·林德命名。',
+          brandNote: 'Lillet Blanc是正宗配方的苦酒，不可替换；如果Lillet难买，可用干味美思。',
+          ingredients: [{
+            n: '金酒',
+            a: '45ml'
+          }, {
+            n: '伏特加',
+            a: '15ml'
+          }, {
+            n: 'Lillet Blanc',
+            a: '7.5ml'
+          }],
+          steps: ['摇壶加冰（邦德要求摇匀）', '加入金酒+伏特加+Lillet', '用力摇匀至充分冷却', '双重过滤入大马天尼杯', '柠檬皮卷装饰'],
+          tip: '原著中邦德要求"摇匀不搅拌"，是对传统的刻意颠覆。'
+        },
+        {
+          id: 50,
+          name: '帕洛马冰茶',
+          enName: 'Tequila Paloma Tea',
+          spirits: ['tequila', 'liqueur'],
+          brands: ['don_julio', 'patron_r', 'triple_sec'],
+          flavor: ['fresh', 'sour'],
+          difficulty: 'easy',
+          color: '#fb923c',
+          abv: '~14%',
+          taste: '西柚·茶香·清爽',
+          img: 'https://images.pexels.com/photos/5947050/pexels-photo-5947050.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '帕洛玛的茶香升级，以绿茶替代部分苏打水。',
+          brandNote: 'Reposado陈年龙舌兰的木桶底味与绿茶的草本非常和谐。',
+          ingredients: [{
+            n: '龙舌兰酒(Reposado)',
+            a: '50ml'
+          }, {
+            n: '西柚汁',
+            a: '60ml'
+          }, {
+            n: '冷泡绿茶',
+            a: '60ml'
+          }, {
+            n: '蜂蜜糖浆',
+            a: '15ml'
+          }, {
+            n: '青柠汁',
+            a: '10ml'
+          }],
+          steps: ['高杯加冰', '加入龙舌兰+西柚汁+绿茶+蜂蜜糖浆+青柠汁', '轻搅', '西柚角和青柠角装饰'],
+          tip: '冷泡绿茶12小时更清澈，热泡冷却效果稍差。'
+        },
+        {
+          id: 51,
+          name: '辣椒黄瓜金酒汤力',
+          enName: 'Spicy Cucumber G&T',
+          spirits: ['gin'],
+          brands: ['hendricks', 'botanist', 'tanqueray10'],
+          flavor: ['fresh', 'bitter'],
+          difficulty: 'easy',
+          color: '#86efac',
+          abv: '~9%',
+          taste: '黄瓜·辣椒·清爽',
+          img: 'https://images.pexels.com/photos/5947019/pexels-photo-5947019.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '亨利爵士定制搭配，黄瓜清爽遇辣椒刺激。',
+          brandNote: 'Hendrick\'s以玫瑰和黄瓜著称，是这款最完美的基础。',
+          ingredients: [{
+            n: "Hendrick's金酒",
+            a: '50ml'
+          }, {
+            n: '高端汤力水',
+            a: '150ml'
+          }, {
+            n: '黄瓜片',
+            a: '4-5片'
+          }, {
+            n: '新鲜辣椒',
+            a: '2-3片'
+          }, {
+            n: '青柠',
+            a: '1角'
+          }],
+          steps: ['大球形冰放入杯', '黄瓜片和辣椒片放入', '倒入金酒', '沿杯壁缓倒汤力水', '轻搅，青柠角装饰'],
+          tip: '辣椒籽的量控制辣度，去籽则只剩香气无辣感。'
+        },
+        {
+          id: 52,
+          name: '苹果波本酸',
+          enName: 'Apple Bourbon Sour',
+          spirits: ['whiskey', 'brandy'],
+          brands: ['woodford', 'buffalo', 'laird'],
+          flavor: ['sour', 'sweet'],
+          difficulty: 'medium',
+          color: '#84cc16',
+          abv: '~20%',
+          taste: '苹果·波本·秋意',
+          img: 'https://images.pexels.com/photos/5947030/pexels-photo-5947030.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '波本威士忌配苹果白兰地，秋天的味道。',
+          brandNote: "Laird's Applejack与波本的混调比例可以自由调整。",
+          ingredients: [{
+            n: '波本威士忌',
+            a: '30ml'
+          }, {
+            n: '苹果白兰地',
+            a: '20ml'
+          }, {
+            n: '柠檬汁',
+            a: '25ml'
+          }, {
+            n: '苹果汁',
+            a: '20ml'
+          }, {
+            n: '蜂蜜糖浆',
+            a: '15ml'
+          }, {
+            n: '蛋白',
+            a: '15ml'
+          }],
+          steps: ['先干摇蛋白10秒', '加冰再摇所有材料', '过滤入威士忌杯', '苦精画图案装饰'],
+          tip: '肉桂粉洒在泡沫上增添秋日香气。'
+        },
+        {
+          id: 53,
+          name: '烟熏纸飞机',
+          enName: 'Paper Plane',
+          spirits: ['whiskey', 'liqueur'],
+          brands: ['wild_turkey', 'woodford', 'aperol', 'amaretto'],
+          flavor: ['sour', 'bitter', 'sweet'],
+          difficulty: 'medium',
+          color: '#f59e0b',
+          abv: '~24%',
+          taste: '酸甜·苦橙·杏仁',
+          img: 'https://images.pexels.com/photos/3407780/pexels-photo-3407780.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '四等份完美平衡，现代经典的代表。',
+          brandNote: '四种材料严格等量；Wild Turkey 101酒精度足以撑起整体。',
+          ingredients: [{
+            n: '美格或Wild Turkey波本',
+            a: '22.5ml'
+          }, {
+            n: 'Aperol',
+            a: '22.5ml'
+          }, {
+            n: 'Amaro Nonino',
+            a: '22.5ml'
+          }, {
+            n: '柠檬汁',
+            a: '22.5ml'
+          }],
+          steps: ['摇壶加冰', '四种材料严格等量加入', '用力摇匀15秒', '过滤入碟形杯'],
+          tip: '四等份法则：任何材料变化都会破坏这款酒的精妙平衡。'
+        },
+        {
+          id: 54,
+          name: '日出含羞草',
+          enName: 'Sunrise Mimosa',
+          spirits: ['wine', 'liqueur'],
+          brands: ['champagne', 'prosecco', 'chambord'],
+          flavor: ['sweet', 'fresh', 'tropical'],
+          difficulty: 'easy',
+          color: '#f97316',
+          abv: '~7%',
+          taste: '草莓·气泡·浪漫',
+          img: 'https://images.pexels.com/photos/5947033/pexels-photo-5947033.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '经典含羞草加入黑莓浆，色彩如日出般迷人。',
+          brandNote: 'Chambord法国黑覆盆子力娇沉底形成美丽渐变。',
+          ingredients: [{
+            n: '香槟/Prosecco',
+            a: '90ml'
+          }, {
+            n: '鲜榨橙汁',
+            a: '60ml'
+          }, {
+            n: 'Chambord黑覆盆子',
+            a: '15ml（沉底）'
+          }],
+          steps: ['笛形杯倒入橙汁', '缓缓倒入香槟', '用吧匙背将Chambord沉入底部', '不要搅拌，欣赏渐变'],
+          tip: 'Chambord密度较大，会自然沉底，形成红橙黄渐变。'
+        },
+        {
+          id: 55,
+          name: '接骨木花圣酯',
+          enName: 'St-Germain Spritz',
+          spirits: ['wine', 'liqueur'],
+          brands: ['prosecco', 'champagne', 'st_germain'],
+          flavor: ['sweet', 'fresh', 'tropical'],
+          difficulty: 'easy',
+          color: '#d9f99d',
+          abv: '~8%',
+          taste: '接骨木花·气泡·花香',
+          img: 'https://images.pexels.com/photos/5947019/pexels-photo-5947019.jpeg?auto=compress&cs=tinysrgb&w=600',
+          desc: '法国接骨木花力娇与起泡酒的春日诗篇。',
+          brandNote: 'St-Germain接骨木花力娇独一无二，是这款酒的灵魂。',
+          ingredients: [{
+            n: 'St-Germain接骨木花力娇',
+            a: '50ml'
+          }, {
+            n: 'Prosecco',
+            a: '90ml'
+          }, {
+            n: '苏打水',
+            a: '30ml'
+          }, {
+            n: '黄瓜片',
+            a: '装饰'
+          }],
+          steps: ['大球形冰放入葡萄酒杯', '倒入St-Germain', '倒入Prosecco', '加苏打水', '黄瓜片装饰'],
+          tip: '官方建议比例2:3:1（St-Germain:Prosecco:苏打水）。'
+        },
+      ];
+      // ─────────────────────────────────────────────────────
+      // 全局状态
+      // ─────────────────────────────────────────────────────
+      const state = {
+        selectedTypes: new Set(), // 基酒类型 id
+        selectedBrands: new Set(), // 品牌 id
+        flavorFilter: 'all',
+        searchQuery: '',
+        filterMode: 'all', // 'all' | 'owned'
+        expandedType: null,
+      };
+      // ─────────────────────────────────────────────────────
+      // 渲染基酒类型网格
+      // ─────────────────────────────────────────────────────
+      function renderSpiritTypeGrid() {
+        const grid = document.getElementById('spiritTypeGrid');
+        grid.innerHTML = SPIRIT_TYPES.map(t => {
+          const sel = state.selectedTypes.has(t.id);
+          return `
+      <div class="spirit-card ${sel ? 'selected' : ''}" onclick="toggleSpiritType('${t.id}')">
+        <div class="spirit-check"><i class="fas fa-check" style="font-size:9px;"></i></div>
+        <div class="spirit-icon-wrap" style="${sel ? `background:rgba(201,168,76,0.14);` : ''}">
+          <i class="fas ${t.icon}" style="color:${sel ? 'var(--gold)' : t.color};font-size:22px;transition:color .25s;"></i>
+        </div>
+        <div style="font-size:12px;font-weight:600;color:${sel ? 'var(--gold-light)' : 'var(--text-primary)'};">${t.name}</div>
+        <div style="font-size:10px;color:${sel ? '#86efac' : 'rgba(160,152,128,0.5)'};">${sel ? '✓ 已有' : '点击添加'}</div>
+      </div>`;
+        }).join('');
+      }
+      // ─────────────────────────────────────────────────────
+      // 切换基酒类型 & 显示品牌面板
+      // ─────────────────────────────────────────────────────
+      function toggleSpiritType(id) {
+        const wasSelected = state.selectedTypes.has(id);
+        if (wasSelected) {
+          state.selectedTypes.delete(id);
+          // 移除该类型下所有品牌
+          const opts = BRAND_OPTIONS[id];
+          if (opts) opts.groups.forEach(g => g.items.forEach(item => state.selectedBrands.delete(item.id)));
+          if (state.expandedType === id) {
+            state.expandedType = null;
+            closeBrandPanel();
+          }
+        } else {
+          state.selectedTypes.add(id);
+          state.expandedType = id;
+          openBrandPanel(id);
+          showToast(`已添加 ${SPIRIT_TYPES.find(t=>t.id===id).name}，请选择品牌 🍾`);
+        }
+        renderSpiritTypeGrid();
+        updateSelectedSummary();
+        if (state.filterMode === 'owned') applyFilters();
+      }
+
+      function openBrandPanel(typeId) {
+        const opts = BRAND_OPTIONS[typeId];
+        if (!opts) return;
+        const t = SPIRIT_TYPES.find(t => t.id === typeId);
+        const content = document.getElementById('brandPanelContent');
+        content.innerHTML = `
+    <div style="padding:18px 24px 12px;display:flex;align-items:center;justify-between;gap:12px;border-bottom:1px solid rgba(255,255,255,0.05);">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="width:32px;height:32px;border-radius:8px;background:rgba(201,168,76,0.12);display:flex;align-items:center;justify-content:center;">
+          <i class="fas ${t.icon}" style="color:var(--gold);font-size:16px;"></i>
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:var(--gold-light);">${opts.label}</div>
+          <div style="font-size:11px;color:var(--text-secondary);">选择你手头有的具体品牌</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button onclick="selectAllBrandsForType('${typeId}')" class="btn-ghost px-3 py-1.5 rounded-lg" style="font-size:11px;">全选</button>
+        <button onclick="clearBrandsForType('${typeId}')" class="btn-ghost px-3 py-1.5 rounded-lg" style="font-size:11px;">清空</button>
+        <button onclick="closeBrandPanel()" class="btn-ghost px-3 py-1.5 rounded-lg" style="font-size:11px;"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+    ${opts.groups.map(g => `
+      <div class="brand-section">
+        <div class="brand-group-title" style="color:${g.color};">
+          <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${g.color};margin-right:6px;"></span>
+          ${g.title}
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          ${g.items.map(item => `
+            <button class="brand-tag ${state.selectedBrands.has(item.id) ? 'active' : ''}"
+              id="brand-${item.id}"
+              onclick="toggleBrand('${item.id}')"
+              title="${item.note}">
+              <span>${item.name}</span>
+              <span style="opacity:0.6;font-size:10px;margin-left:2px;">· ${item.note}</span>
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    `).join('')}
+  `;
+        const panel = document.getElementById('brandPanel');
+        panel.classList.add('open');
+        setTimeout(() => panel.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest'
+        }), 100);
+      }
+
+      function closeBrandPanel() {
+        document.getElementById('brandPanel').classList.remove('open');
+      }
+      // ─────────────────────────────────────────────────────
+      // 品牌选择
+      // ─────────────────────────────────────────────────────
+      function toggleBrand(id) {
+        if (state.selectedBrands.has(id)) {
+          state.selectedBrands.delete(id);
+        } else {
+          state.selectedBrands.add(id);
+        }
+        const el = document.getElementById(`brand-${id}`);
+        if (el) el.classList.toggle('active', state.selectedBrands.has(id));
+        updateSelectedSummary();
+        if (state.filterMode === 'owned') applyFilters();
+      }
+
+      function selectAllBrandsForType(typeId) {
+        const opts = BRAND_OPTIONS[typeId];
+        if (!opts) return;
+        opts.groups.forEach(g => g.items.forEach(item => {
+          state.selectedBrands.add(item.id);
+          const el = document.getElementById(`brand-${item.id}`);
+          if (el) el.classList.add('active');
+        }));
+        updateSelectedSummary();
+        showToast('已全选该分类品牌 ✓');
+      }
+
+      function clearBrandsForType(typeId) {
+        const opts = BRAND_OPTIONS[typeId];
+        if (!opts) return;
+        opts.groups.forEach(g => g.items.forEach(item => {
+          state.selectedBrands.delete(item.id);
+          const el = document.getElementById(`brand-${item.id}`);
+          if (el) el.classList.remove('active');
+        }));
+        updateSelectedSummary();
+      }
+      // ─────────────────────────────────────────────────────
+      // 更新已选摘要
+      // ─────────────────────────────────────────────────────
+      function updateSelectedSummary() {
+        const summary = document.getElementById('selectedSummary');
+        const tags = document.getElementById('selectedTags');
+        if (state.selectedBrands.size === 0 && state.selectedTypes.size === 0) {
+          summary.style.display = 'none';
+          return;
+        }
+        summary.style.display = 'block';
+        // 收集品牌名
+        const tagItems = [];
+        state.selectedTypes.forEach(typeId => {
+          const opts = BRAND_OPTIONS[typeId];
+          if (!opts) return;
+          opts.groups.forEach(g => g.items.forEach(item => {
+            if (state.selectedBrands.has(item.id)) {
+              tagItems.push({
+                name: item.name.split(' ')[0],
+                color: g.color,
+                id: item.id
+              });
+            }
+          }));
+          // 若只选了类型没选品牌
+          if (tagItems.filter(x => {
+              // check if this type has any selected brands
+              let found = false;
+              opts.groups.forEach(g2 => g2.items.forEach(i2 => {
+                if (state.selectedBrands.has(i2.id)) found = true;
+              }));
+              return found;
+            }).length === 0) {
+            const t = SPIRIT_TYPES.find(t => t.id === typeId);
+            tagItems.push({
+              name: t.name + '（通用）',
+              color: t.color,
+              id: typeId
+            });
+          }
+        });
+        if (tagItems.length === 0) {
+          state.selectedTypes.forEach(typeId => {
+            const t = SPIRIT_TYPES.find(t => t.id === typeId);
+            tagItems.push({
+              name: t.name + '（已选）',
+              color: t.color,
+              id: typeId
+            });
+          });
+        }
+        tags.innerHTML = tagItems.slice(0, 20).map(t => `
+    <span style="display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:999px;border:1px solid ${t.color}44;background:${t.color}18;font-size:11px;color:${t.color};">
+      ${t.name}
+      <span onclick="removeBrandTag('${t.id}')" style="cursor:pointer;opacity:.6;hover:opacity:1;">×</span>
+    </span>
+  `).join('') + (tagItems.length > 20 ? `<span style="font-size:11px;color:var(--text-secondary);">+${tagItems.length-20}更多</span>` : '');
+      }
+
+      function removeBrandTag(id) {
+        state.selectedBrands.delete(id);
+        state.selectedTypes.delete(id);
+        updateSelectedSummary();
+        renderSpiritTypeGrid();
+        if (state.filterMode === 'owned') applyFilters();
+      }
+      // ─────────────────────────────────────────────────────
+      // 匹配逻辑
+      // ─────────────────────────────────────────────────────
+      function isRecipeMatchable(recipe) {
+        // 判断1：所有所需基酒类型都在选中的类型中
+        const typeMatch = recipe.spirits.every(s => state.selectedTypes.has(s));
+        if (!typeMatch) return false;
+        // 判断2：若有品牌选择，至少有一个相关品牌被选中
+        if (state.selectedBrands.size > 0 && recipe.brands && recipe.brands.length > 0) {
+          const hasBrand = recipe.brands.some(b => state.selectedBrands.has(b));
+          return hasBrand;
+        }
+        return true;
+      }
+      // ─────────────────────────────────────────────────────
+      // 筛选 & 渲染
+      // ─────────────────────────────────────────────────────
+      function filterByOwned() {
+        if (state.selectedTypes.size === 0) {
+          showToast('请先选择基酒类型 🍾');
+          return;
+        }
+        state.filterMode = 'owned';
+        const count = RECIPES.filter(r => isRecipeMatchable(r)).length;
+        document.getElementById('matchBanner').style.display = 'block';
+        document.getElementById('matchText').textContent = `根据你的酒柜，共找到 ${count} 款可制作配方`;
+        applyFilters();
+        document.getElementById('recipes').scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+
+      function showAll() {
+        state.filterMode = 'all';
+        document.getElementById('matchBanner').style.display = 'none';
+        applyFilters();
+      }
+
+      function setFlavorTab(el, f) {
+        state.flavorFilter = f;
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        el.classList.add('active');
+        applyFilters();
+      }
+
+      function selectAllSpirits() {
+        SPIRIT_TYPES.forEach(t => state.selectedTypes.add(t.id));
+        renderSpiritTypeGrid();
+        showToast('已全选所有基酒类型 🎉');
+        updateSelectedSummary();
+      }
+
+      function clearAll() {
+        state.selectedTypes.clear();
+        state.selectedBrands.clear();
+        state.filterMode = 'all';
+        state.expandedType = null;
+        closeBrandPanel();
+        renderSpiritTypeGrid();
+        updateSelectedSummary();
+        document.getElementById('matchBanner').style.display = 'none';
+        applyFilters();
+        showToast('已重置酒柜');
+      }
+
+      function applyFilters() {
+        const q = document.getElementById('searchInput').value.toLowerCase();
+        state.searchQuery = q;
+        let list = RECIPES;
+        if (q) {
+          list = list.filter(r =>
+            r.name.toLowerCase().includes(q) ||
+            r.enName.toLowerCase().includes(q) ||
+            r.spirits.some(s => SPIRIT_TYPES.find(t => t.id === s)?.name.toLowerCase().includes(q)) ||
+            r.taste.toLowerCase().includes(q)
+          );
+        }
+        if (state.flavorFilter !== 'all') {
+          list = list.filter(r => r.flavor.includes(state.flavorFilter));
+        }
+        if (state.filterMode === 'owned') {
+          list = list.filter(r => isRecipeMatchable(r));
+        }
+        renderRecipeGrid(list);
+      }
+      // ─────────────────────────────────────────────────────
+      // 渲染配方卡片
+      // ─────────────────────────────────────────────────────
+      function diffBadge(d) {
+        if (d === 'easy') return '<span class="badge badge-easy"><i class="fas fa-circle" style="font-size:7px;"></i> 简单</span>';
+        if (d === 'medium') return '<span class="badge badge-medium"><i class="fas fa-circle" style="font-size:7px;"></i> 中等</span>';
+        return '<span class="badge badge-hard"><i class="fas fa-circle" style="font-size:7px;"></i> 高难</span>';
+      }
+
+      function renderRecipeGrid(list) {
+        const grid = document.getElementById('recipeGrid');
+        document.getElementById('resultCount').textContent = `共 ${list.length} 款`;
+        if (!list.length) {
+          grid.innerHTML = `<div class="col-span-full text-center py-20" style="color:var(--text-secondary);">
+      <i class="fas fa-search" style="font-size:3rem;opacity:.28;display:block;margin-bottom:14px;"></i>
+      <p style="font-size:15px;">没有找到匹配的配方</p>
+      <p style="font-size:13px;margin-top:6px;opacity:.6;">尝试更换条件或添加更多基酒</p>
+    </div>`;
+          return;
+        }
+        const hasSel = state.selectedTypes.size > 0;
+        grid.innerHTML = list.map((r, i) => {
+          const matched = hasSel && isRecipeMatchable(r);
+          const spiritLabels = r.spirits.map(s => SPIRIT_TYPES.find(t => t.id === s)?.name || s);
+          return `
+      <div class="recipe-card ${matched ? 'matched' : ''}"
+           onclick="openRecipeModal(${r.id})"
+           style="animation:fadeUp .4s ${i*0.04}s ease both;">
+        <div class="card-img">
+          <img src="${r.img}" alt="${r.name}" loading="lazy"
+               onerror="this.src='https://images.pexels.com/photos/3407777/pexels-photo-3407777.jpeg?auto=compress&cs=tinysrgb&w=600'" />
+          <div class="card-img-grad"></div>
+          ${matched ? `<div style="position:absolute;top:10px;right:10px;" class="badge badge-matchable"><i class="fas fa-check mr-1"></i>可制作</div>` : ''}
+          <div style="position:absolute;top:10px;left:10px;">${diffBadge(r.difficulty)}</div>
+          <div style="position:absolute;bottom:10px;left:14px;display:flex;align-items:center;gap:7px;">
+            <div style="width:9px;height:9px;border-radius:50%;background:${r.color};box-shadow:0 0 8px ${r.color};flex-shrink:0;"></div>
+            <span style="font-size:14px;font-weight:700;color:#fff;">${r.name}</span>
+          </div>
+        </div>
+        <div style="padding:14px 16px 16px;">
+          <div style="font-size:11px;color:var(--text-secondary);letter-spacing:0.5px;margin-bottom:4px;">${r.enName}</div>
+          <div style="font-size:13px;color:rgba(240,236,224,0.65);line-height:1.6;margin-bottom:12px;min-height:38px;">${r.desc}</div>
+          <div style="height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.2;margin-bottom:10px;"></div>
+          <div class="flex flex-wrap gap-1 mb-2">
+            ${spiritLabels.map(n=>`<span style="font-size:11px;padding:2px 7px;background:rgba(201,168,76,0.09);border:1px solid rgba(201,168,76,0.2);border-radius:4px;color:var(--gold-light);">${n}</span>`).join('')}
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:11px;color:var(--text-secondary);"><i class="fas fa-tint mr-1" style="color:var(--gold);"></i>${r.taste}</span>
+            <span style="font-size:11px;color:var(--text-secondary);">ABV ${r.abv}</span>
+          </div>
+        </div>
+      </div>`;
+        }).join('');
+      }
+      // ─────────────────────────────────────────────────────
+      // 模态框
+      // ─────────────────────────────────────────────────────
+      function openRecipeModal(id) {
+        const r = RECIPES.find(x => x.id === id);
+        if (!r) return;
+        const matched = state.selectedTypes.size > 0 && isRecipeMatchable(r);
+        const spiritLabels = r.spirits.map(s => SPIRIT_TYPES.find(t => t.id === s)?.name || s);
+        // 找到该配方相关的、已选中的品牌
+        const relatedBrands = [];
+        if (r.brands) {
+          r.brands.forEach(bid => {
+            if (state.selectedBrands.has(bid)) {
+              // 找到品牌名
+              for (const opts of Object.values(BRAND_OPTIONS)) {
+                for (const g of opts.groups) {
+                  const item = g.items.find(i => i.id === bid);
+                  if (item) {
+                    relatedBrands.push({
+                      name: item.name,
+                      note: item.note,
+                      color: g.color
+                    });
+                    break;
+                  }
+                }
+              }
+            }
+          });
+        }
+        document.getElementById('modalBox').innerHTML = `
+    <div style="position:relative;height:280px;overflow:hidden;border-radius:22px 22px 0 0;">
+      <img src="${r.img}" alt="${r.name}" style="width:100%;height:100%;object-fit:cover;"
+           onerror="this.src='https://images.pexels.com/photos/3407777/pexels-photo-3407777.jpeg?auto=compress&cs=tinysrgb&w=600'" />
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.2) 0%,rgba(8,8,16,0.92) 100%);"></div>
+      <button onclick="closeModal()" style="position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.2);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .2s;" onmouseover="this.style.background='rgba(255,255,255,.12)'" onmouseout="this.style.background='rgba(0,0,0,.5)'">✕</button>
+      <div style="position:absolute;bottom:18px;left:22px;right:22px;">
+        ${matched ? `<div style="display:inline-flex;align-items:center;gap:5px;background:rgba(74,222,128,0.9);color:#08080f;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;margin-bottom:8px;"><i class="fas fa-check"></i> 你可以制作这款！</div>` : ''}
+        <h2 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,3vw,1.8rem);font-weight:700;color:#fff;line-height:1.2;">${r.name}</h2>
+        <div style="font-size:13px;color:rgba(255,255,255,.55);">${r.enName}</div>
+      </div>
+    </div>
+    <div style="padding:22px 24px;">
+      <!-- Meta badges -->
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+        ${diffBadge(r.difficulty)}
+        <span class="badge" style="background:rgba(201,168,76,.1);color:var(--gold-light);border:1px solid rgba(201,168,76,.3);"><i class="fas fa-tint mr-1"></i>${r.taste}</span>
+        <span class="badge" style="background:rgba(201,168,76,.1);color:var(--gold-light);border:1px solid rgba(201,168,76,.3);">ABV ${r.abv}</span>
+      </div>
+      <p style="font-size:14px;color:rgba(240,236,224,.7);line-height:1.75;margin-bottom:18px;">${r.desc}</p>
+
+      ${relatedBrands.length > 0 ? `
+        <div style="background:rgba(74,222,128,0.07);border:1px solid rgba(74,222,128,0.22);border-radius:10px;padding:12px 16px;margin-bottom:18px;">
+          <div style="font-size:11px;font-weight:700;color:#86efac;letter-spacing:2px;margin-bottom:8px;"><i class="fas fa-check-circle mr-1"></i> 你的酒柜匹配品牌</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;">
+            ${relatedBrands.map(b=>`<span style="font-size:12px;padding:3px 10px;border-radius:999px;border:1px solid ${b.color}44;background:${b.color}18;color:${b.color};">${b.name.split(' ')[0]}<span style="opacity:.6;font-size:10px;"> · ${b.note}</span></span>`).join('')}
+          </div>
+        </div>` : ''}
+
+      ${r.brandNote ? `
+        <div style="background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.2);border-radius:10px;padding:12px 16px;margin-bottom:18px;">
+          <div style="font-size:11px;font-weight:700;color:var(--gold);letter-spacing:2px;margin-bottom:6px;"><i class="fas fa-star mr-1"></i> 品牌搭配建议</div>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.65;">${r.brandNote}</p>
+        </div>` : ''}
+
+      <div style="height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.22;margin-bottom:18px;"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+        <!-- 材料 -->
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--gold-light);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;"><i class="fas fa-list-ul mr-2"></i>材料</div>
+          ${r.ingredients.map(ing=>`
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);">
+              <span style="font-size:13px;color:var(--text-primary);">${ing.n}</span>
+              <span style="font-size:12px;color:var(--gold);font-weight:700;flex-shrink:0;margin-left:10px;">${ing.a}</span>
+            </div>`).join('')}
+        </div>
+        <!-- 步骤 -->
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--gold-light);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;"><i class="fas fa-tasks mr-2"></i>步骤</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            ${r.steps.map((s,i)=>`
+              <div style="display:flex;gap:10px;align-items:flex-start;">
+                <div class="step-dot">${i+1}</div>
+                <span style="font-size:13px;color:var(--text-secondary);line-height:1.6;padding-top:4px;">${s}</span>
+              </div>`).join('')}
+          </div>
+        </div>
+      </div>
+
+      <!-- 调酒师提示 -->
+      <div style="background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.18);border-radius:10px;padding:14px 16px;margin-bottom:18px;">
+        <div style="font-size:11px;font-weight:700;color:var(--gold);letter-spacing:2px;margin-bottom:6px;"><i class="fas fa-lightbulb mr-1"></i> 调酒师提示</div>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.65;">${r.tip}</p>
+      </div>
+
+      <!-- 所需基酒 -->
+      <div>
+        <div style="font-size:11px;font-weight:700;color:var(--text-secondary);letter-spacing:2px;margin-bottom:10px;">所需基酒</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          ${r.spirits.map(s => {
+            const t = SPIRIT_TYPES.find(t=>t.id===s);
+            const have = state.selectedTypes.has(s);
+            return `<div style="display:flex;align-items:center;gap:7px;padding:7px 12px;border-radius:9px;border:1px solid ${have?'rgba(74,222,128,.4)':'rgba(201,168,76,.2)'};background:${have?'rgba(74,222,128,.08)':'rgba(201,168,76,.04)'};">
+              <i class="fas ${t?.icon}" style="color:${have?'#86efac':t?.color};font-size:13px;"></i>
+              <span style="font-size:12px;font-weight:600;color:${have?'#86efac':'var(--text-primary)'};">${t?.name}</span>
+              ${have ? '<i class="fas fa-check" style="color:#86efac;font-size:10px;"></i>' : ''}
+            </div>`;
+          }).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+        document.getElementById('modal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        document.getElementById('modal').classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      function closeModalOutside(e) {
+        if (e.target === document.getElementById('modal')) closeModal();
+      }
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeModal();
+      });
+      // ─────────────────────────────────────────────────────
+      // Toast
+      // ─────────────────────────────────────────────────────
+      let _toastTimer;
+
+      function showToast(msg) {
+        const t = document.getElementById('toast');
+        t.textContent = msg;
+        t.classList.add('show');
+        clearTimeout(_toastTimer);
+        _toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+      }
+      // ─────────────────────────────────────────────────────
+      // Scroll helper
+      // ─────────────────────────────────────────────────────
+      function scrollTo(id) {
+        document.querySelector(id)?.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+      // ─────────────────────────────────────────────────────
+      // Mermaid
+      // ─────────────────────────────────────────────────────
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'dark',
+        themeVariables: {
+          primaryColor: '#1a1a28',
+          primaryTextColor: '#f0ece0',
+          primaryBorderColor: '#c9a84c',
+          lineColor: '#c9a84c',
+          secondaryColor: '#10101c',
+          tertiaryColor: '#080810',
+          background: '#080810',
+          mainBkg: '#1a1a28',
+          nodeBorder: '#c9a84c',
+          clusterBkg: '#10101c',
+          titleColor: '#f0d080',
+          edgeLabelBackground: '#1a1a28',
+          fontFamily: 'Tahoma,Arial,sans-serif',
+        }
+      });
+      // ─────────────────────────────────────────────────────
+      // 初始化
+      // ─────────────────────────────────────────────────────
+      renderSpiritTypeGrid();
+      applyFilters();
+    </script>
+  </body>
+</html>
